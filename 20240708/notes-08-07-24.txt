@@ -288,6 +288,13 @@ to write the better bubble sort code.
     Time complexity: O(N^2) for best, average and worst cases 
     Space complexity: O(1) 
 
+Attributes/Principles of selection sort:
+    selection and finding min element 
+    comparison sort 
+    swap 
+    in-place memory. not using any auxiliary memory for our sorting.
+
+
 conduct selection sort:
     ar = [7 4 3 5 8 10 2 6], N=8
           =                  min element after the selected element = 2 
@@ -324,17 +331,65 @@ def ssort(ar):
     # the elements sorted 
 
 
+--- Insertion Sort ---
+    ar = [7 4 3 5 8 10 2 6], N=8 Insertion Sort
+
+    the principle is the way we insert the element into the array.
+        how do we insert an elment into the array?
+            we will right shift the next elements and insert the new element 
+
+learning the sorting: sorted list | unsorted list 
+ar = [7 4 3 5 8 10 2 6]
+    we will find the first element of the unsorted list in the sorted list 
+        --------------
+ar = [7 4 3 5 8 10 2 6]   
+      =                pos for 4 is 0 
+          -------------
+ar = [4 7 3 5 8 10 2 6]
+      ===              pos for 3 is 0 
+            ------------
+ar = [3 4 7 5 8 10 2 6]    
+      =====            pos for 5 is 2 
+              -------- 
+ar = [3 4 5 7 8 10 2 6]
+      =======         pos for 8 is 4, no insertion 
+                -------- 
+ar = [3 4 5 7 8 10 2 6]      
+      =========       pos for 10 is the same, no insertion 
+                   ---- 
+ar = [3 4 5 7 8 10 2 6]            
+      ============     pos for 2 is 0, insertion 
+                     ---
+ar = [2 3 4 5 7 8 10 6] 
+      ==============   pos for 6 is 4, insertion 
+ar = [2 3 4 5 6 7 8 10], no further unsorted list, so we completed the sorting.
+
+writing the code         
+
+def isort(ar):
+    N = len(ar)
+    for I in range(1,N): #initially we have first element sub list as sorted, all elements are in unsorted list.
+        target = ar[I]  # initialize first element of the unsorted element 
+        tindex = I      # assume the position for the first element is same 
+        sindex = I - 1  
+        while sindex >= 0 and target < ar[sindex]: # check the position for target element 
+            ar[sindex+1] = ar[sindex] # parrallel run for shifting right for insertion of target element 
+            sindex -= 1     # scan previous elements in the sorted list 
+            tindex -= 1     # change the position of the tareget element 
+        if tindex != I: # insertion we done. the shifting right happened before during finding the pos. 
+            ar[tindex] = target 
+        
+    #elements sorted 
+
+complexity:
+    time: O(N^2) for average and worst cases. O(N) for best case ie for sorted list.
+    space: O(1)
+
+Attributes/Principles of insertion sort:
+    insertion: the way we insert an element to the array 
+    comparison sort 
+    shift right ie insertion of the element  
+    in-place memory. not using any auxiliary memory for our sorting.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Q: https://leetcode.com/problems/sort-colors/
