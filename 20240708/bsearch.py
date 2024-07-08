@@ -20,4 +20,4 @@ def solve():
 
 solve()
 
-#time complexity: 
+#time complexity: O(log N)
