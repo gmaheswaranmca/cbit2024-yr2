@@ -1,0 +1,136 @@
+Python core 
+Python OOP 
+DSA - ds:stack, queue
+DSA - ds:linked list, SLL, DLL, CLL 
+Searching/Sorting algorithms 
+Advanced DS 
+-- -- -- 
+case studies:
+    SQL learnings - case studies - mini project 
+    Web Technologies - Web Site, Dynamic Web Site 
+    Web App Development - python based web application 
+-- -- --
+
+Searching algorithms: list/array 
+    1. Linear Search : for unsorted list
+    2. Binary Search : for sorted list 
+    3. Ternary Search : for sorted list 
+
+Sorting algorithms: list/array sortings 
+    1. Bubble Sort
+    2. Selection Sort 
+    3. Insertion Sort 
+    4. Quick Sort 
+    5. Merge Sort 
+    --- --
+    6. Heap Sort 
+
+ar = [7 4 3 5 8 10 2 6], N=8 Search Linear, Sortings 
+sorted ar = [2 3 4 5 6 7 8 10], N=8 Search Binary / Ternary 
+
+you will form some other datasets to experiment for many test cases. 
+
+--- Linear Search ---
+ar = [7 4 3 5 8 10 2 6], N=8, target=2 
+1. Sequential Search, from the list every element we do traversal and 
+   check the that key/target data is found  
+
+linear search 
+    - takes the arguments 
+        ar - list/array 
+        target - the search element 
+    - returns the index of the target element if found 
+              -1 if not found 
+
+
+--- --- 
+We define the linear search function.
+    lsearch(ar,target) -> index of the target 
+    solve() -> read the number of numbers, numbers array, target data 
+               call lsearch to find the index of the target data 
+
+python
+------------------------------------------
+def lsearch(ar,target):
+    N=len(ar)
+    for I in range(N):
+        if ar[I] == target:
+            return I 
+    return -1
+
+def solve():
+    #N=len(ar)#8
+    ar = [7, 4, 3, 5, 8, 10, 2, 6]
+    target=2
+    index = lsearch(ar, target)
+    print(index)
+
+solve()
+------------------------------------------
+Time Complexity of lsearch is: O(N) 
+
+
+
+
+--- Binary Search ---
+    only for sorted list 
+ar = [2 3 4 5 6 7 8 10], N=8, target=4 
+1. traversal to mid element of the list 
+   if mid element is target: 
+        stop the search 
+   otherwise 
+        check where is the element 
+        if target < mid element:
+            search range is reduced to left side of mid element 
+        else if target > mid element:
+            search range is reduced to right side of mid element 
+
+binary search 
+    - takes the arguments 
+        ar - list/array 
+        target - the search element 
+    - returns the index of the target element if found 
+              -1 if not found 
+      0              7
+ar = [2 3 4 5 6 7 8 10], N=8, target=4 
+            3
+    mid = left+right // 2 => 0 + 7 // 2 => 3
+    as mid element is not the target 
+    tareget < mid elment ie 4 < 5-> reduce the list as before the mid element 
+        right = mid - 1 = 2
+      0   2 
+ar = [2 3 4]
+        1
+    mid = 0 + 2 // 2 = 1 
+    target is not mid element 
+    target not < mid elment ie 4 < 3 False 
+    target > mid element id 4 > 3 True 
+        left = mid + 1 = 1 + 1 = 2
+     2 2 
+ar = [4]
+    mid = 2 + 2 // 2 = 2 
+    as mid elment is the target we stop here the search
+        ie we found the index of the target element 
+            index for target is 2
+     
+python : iterative binary search 
+
+def bsearch(ar, target):
+    N = len(ar)
+    left, right = 0, N-1
+    while left <= right: 
+        mid = (left + right) // 2 
+        if target == ar[mid]:
+            return mid # found element index 
+        elif target < ar[mid]:
+            right = mid = 1
+        else:   #target > ar[mid]
+            left = mid + 1
+    return -1 # not found 
+
+
+
+
+
+
+
