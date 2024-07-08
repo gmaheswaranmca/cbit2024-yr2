@@ -26,4 +26,4 @@ def solve():
     print(index)
 solve()
 
-#time complexity: 
+#time complexity: O(log (base 3) N)

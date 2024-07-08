@@ -177,7 +177,7 @@ def tsearch(ar, target, left, right):
     elif target == ar[mid2]:
         return mid2 
     else: 
-        #reduce the list eigther as left, middle, right 
+        #reduce the list either as left, middle, right 
         if target < ar[mid1]: 
             return tsearch(ar, target, left, mid1 - 1) # left list 
         elif target > ar[mid2]:
@@ -185,6 +185,155 @@ def tsearch(ar, target, left, right):
         else:
             return tsearch(ar,taget,mid1+1,mid2-1) #middle list excludes mid1 and mid2 
             
+
+#time complexity: O(log (base 3) N)
+
+
+
+------- Sorting Algorithms ---------
+--- Bubble Sort ---
+    ar = [7 4 3 5 8 10 2 6], N=8 Bubble Sort 
+
+    element and its next element: adjacent elements -> comparison 
+        from first element till the element before the last element 
+            why? reason: the element will not have the next element 
+    
+    Step A: element and its next element: adjacent elements -> comparison 
+        repeat for all the elements 
+
+        This step is called pass 
+
+        After every pass, we conclude the last element of the taken list is sorted 
+
+        In the comparision, if we found element is greater than the next element,   
+            conduct swap bt element and next element.
+
+        In a pass, if you cannot conduct the swap. Meaning: the elements are already sorted.
+            Here, if no swap in the last pass, stop the prcoess.
+                because elements are sorted. 
+
+    Optimization Rules: 
+        1. after every pass reduce the size ie excluded the last element of the taken list
+        2. if there is no swap during pass, stop the process. 
+
+ar = [7 4 3 5 8 10 2 6], N=8 Bubble Sort
+      = -
+ar = [4 7 3 5 8 10 2 6] swap        
+        = -
+ar = [4 3 7 5 8 10 2 6] swap
+          = -
+ar = [4 3 5 7 8 10 2 6] swap         
+            = -  no swap 
+ar = [4 3 5 7 8 10 2 6]              
+              = -   no swap
+ar = [4 3 5 7 8 10 2 6]             
+                =  -  swap 
+ar = [4 3 5 7 8 2 10 6]                
+                  =  - swap 
+ar = [4 3 5 7 8 2 6 10]  here pass is over.
+after the first pass, the element 10 takes its position. sorted. 
+
+Next pass we apply the above process only for list less last element 
+ar = [4 3 5 7 8 2 6] conduct one more time the pass, if we continue this we will make sure 
+the list is sorted.
+
+
+Attributes/Principles of bubble sort:
+    comparison sort 
+    swap 
+    in-place memory. not using any auxiliary memory for our sorting.
+
+    Time complexity: 
+        Best      O(N)      if the elements are sorted already    
+        Average   O(N^2)  
+        Worst     O(N^2)
+    Space complexity: O(1)
+
+Arriving the code for bubble sort: 
+
+python / pseodo code: 
+
+def bsort(ar):
+    N = len(ar)
+
+    while True:
+        isSwapped = False 
+        #pass code 
+        for I in range(N-1): # 0 .. N-2 
+            if ar[I] > ar[I+1]: #comparison of adj elements 
+                ar[I],ar[I+1] = ar[I+1],ar[I] #swap 
+                isSwapped = True 
+        if not isSwapped:
+            break
+    # the elements sorted 
+
+
+Here, outer for loop is not used. Instead we used outer while loop 
+to write the better bubble sort code. 
+
+
+
+--- Selection Sort ---
+    ar = [7 4 3 5 8 10 2 6], N=8 Selection Sort
+
+    Pass 
+        select every element and find min element after the element 
+        swap the selected element and min element  
+    Pass you conduct for every element other than last element 
+        Reason: the last element will not have next elements 
+
+    N elements require N-1 passes 
+        Each pass you do N-1 comparisons 
+
+    Time complexity: O(N^2) for best, average and worst cases 
+    Space complexity: O(1) 
+
+conduct selection sort:
+    ar = [7 4 3 5 8 10 2 6], N=8
+          =                  min element after the selected element = 2 
+    swap the selected element and min element 
+    ar = [2 4 3 5 8 10 7 6]
+        every time after the pass the selected element will get the position. sorted. 
+    ar = [2 4 3 5 8 10 7 6]    
+            =                 min=3 
+    ar = [2 3 4 5 8 10 7 6]    
+              =               min=4, dont do the swap it element and min element indices are same 
+    ar = [2 3 4 5 8 10 7 6]
+                =             min=5, no swap 
+    ar = [2 3 4 5 8 10 7 6]
+                  =           min=6, swap 
+    ar = [2 3 4 5 6 10 7 8]
+                    ==        min=7, swap 
+    ar = [2 3 4 5 6 7 10 8] 
+                      ==      min=8, swap 
+    ar = [2 3 4 5 6 7 8 10]   no more passes. we conduct passes only for elements before last element. 
+
+writing the code         
+
+def ssort(ar):
+    N = len(ar)
+
+    for I in range(N-1): #selected element 
+        min_index = I 
+        for J in range(I+1,N): #compare the selected element with next elements to find min element 
+            if ar[J] < ar[min_index]:
+                min_index = J
+        #swap selected element and min element 
+        if min_index != I:  #if selected and min elements are same, no swap [optimized]
+            ar[I], ar[min_index] = ar[min_index], ar[I] # swap code 
+    # the elements sorted 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
