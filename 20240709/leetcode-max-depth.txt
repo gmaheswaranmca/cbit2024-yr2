@@ -1,0 +1,45 @@
+Q: **Maximum Depth of Binary Tree (LeetCode 104)**
+https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
+- **Problem:** Given a binary tree, find its maximum depth.
+- **Solution:** Use a depth-first search (DFS) or 
+        breadth-first search (BFS) 
+        to traverse the tree and keep track of the maximum depth encountered.
+        
+The "Maximum Depth of Binary Tree" problem on LeetCode 
+requires finding the maximum depth of a given binary tree. 
+
+        "   The depth of a binary tree is 
+            the number of nodes along the longest path 
+            from the root node down to the farthest leaf node.  "
+
+### Problem Explanation:
+    - The depth of an empty tree is 0.
+    - For a non-empty tree, the maximum depth is 
+        the maximum depth of its left or right subtree 
+            plus 
+        one for the root node.
+
+### Solution Approach:
+    We'll use a recursive approach to solve this problem. 
+    For each node, we calculate the maximum depth of its left subtree and 
+    right subtree and return the greater of the two, plus one 
+    (to account for the current node).
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        #base cond 
+        if not root:
+            return 0 
+        #logic 
+        ldepth = self.maxDepth(root.left)
+        rdepth = self.maxDepth(root.right)
+        depth = max(ldepth, rdepth) + 1
+        return depth 
+
