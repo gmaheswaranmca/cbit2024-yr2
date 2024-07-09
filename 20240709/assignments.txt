@@ -13,6 +13,22 @@ we need to compare the left and right subtrees recursively.
 We'll use a helper function that checks 
 if two trees are mirrors of each other.
 
+def is_two_symmetric(p, q):
+    if (not p) and (not q):
+        return True 
+    if (not p) or (not q):
+        return False 
+    if p.val != q.val:
+        return False 
+    return is_two_symmetric(p.left, q.right) and is_two_symmetric(p.right,q.left)
+
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True 
+        
+        return is_two_symmetric(root.left, root.right)
+
 Q8
     **Invert Binary Tree (LeetCode 226)**
     https://leetcode.com/problems/invert-binary-tree/
@@ -26,6 +42,20 @@ For each node,
     we swap its left and right children, and 
     then recursively invert 
         the left and right subtrees.
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return root
+        ###preorder
+        #1.visit -> swap the children
+        root.left,root.right=root.right,root.left        
+        #2.travel left
+        self.invertTree(root.left)
+        #3.travel right
+        self.invertTree(root.right)
+
+        return root
+
 
 Q9 
     **Path Sum (LeetCode 112)**
@@ -45,3 +75,14 @@ For each node, subtract the node's value from the target sum,
 and recursively check its left and right subtrees with the updated sum. 
 If we reach a leaf node and the remaining sum equals the leaf's value, 
 we have found a valid path.
+
+class Solution:
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        if not root:
+            return False
+        #is the root is leaf 
+        if (not root.left) and (not root.right):
+            return targetSum == root.val 
+        #other than the leaf 
+        targetSum -= root.val 
+        return self.hasPathSum(root.left,targetSum) or self.hasPathSum(root.right,targetSum) 
