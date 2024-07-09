@@ -77,8 +77,8 @@ class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
-        queue = deque([root]) # 15 7
-        result = []
+        queue = deque([root]) 
+        result = []             
         while queue:
             size = len(queue) #level size 
             level_list = []
