@@ -47,9 +47,48 @@ class Solution:
 **Problem:** [Binary Tree Postorder Traversal]
 (https://leetcode.com/problems/binary-tree-postorder-traversal/)
 (https://www.hackerrank.com/challenges/tree-postorder-traversal/problem)
+def postorder(root, res):
+    #base condition 
+    if not root:
+        return 
+    #logic     
+    postorder(root.left, res)
+    postorder(root.right, res)
+    res.append(root.val)
+
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        postorder(root, res)
+        return res 
 
 4. Level Order Traversal
 **Problem:** [Binary Tree Level Order Traversal]
 (https://leetcode.com/problems/binary-tree-level-order-traversal/)
 
-
+from collections import deque
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+        queue = deque([root]) # 15 7
+        result = []
+        while queue:
+            size = len(queue) #level size 
+            level_list = []
+            for I in range(size):
+                node = queue.popleft()
+                level_list.append(node.val) #visiting
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            #end for
+            result.append(level_list)
+        return result
