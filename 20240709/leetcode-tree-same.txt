@@ -1,0 +1,36 @@
+Q: **Same Tree (LeetCode 100)**
+    https://leetcode.com/problems/same-tree/
+   - **Problem:** 
+        Given two binary trees, 
+        write a function to check 
+        if they are the same or not.
+   - **Solution:** 
+        Compare each node in both trees 
+        to see if they have the same structure and values.
+ 
+
+
+### Problem Explanation:
+Given the roots of two binary trees, 
+determine if they are the same or not. 
+The trees are the same 
+    if they have the same structure and 
+    every corresponding node has the same value.
+
+### Solution Approach:
+We can solve this problem using a recursive approach. 
+For each pair of nodes from both trees, we need to check:
+1. If both nodes are `None`, they are considered the same.
+2. If only one of the nodes is `None`, the trees are not the same.
+3. If the values of the nodes are different, the trees are not the same.
+4. Recursively check the left and right subtrees of both nodes.
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if (not p) and (not q):
+            return True 
+        if (not p) or (not q):
+            return False 
+        if p.val != q.val:
+            return False 
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right,q.right)
