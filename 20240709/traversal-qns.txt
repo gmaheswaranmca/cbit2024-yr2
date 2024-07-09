@@ -2,11 +2,46 @@
 **Problem:** [Binary Tree Inorder Traversal]
 (https://leetcode.com/problems/binary-tree-inorder-traversal/)
 (https://www.hackerrank.com/challenges/tree-inorder-traversal/problem)
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def inorder(root, res):
+    #base condition 
+    if not root:
+        return 
+    #logic 
+    inorder(root.left, res)
+    res.append(root.val)
+    inorder(root.right, res)
+
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        inorder(root, res)
+        return res  
 
 2. Preorder Traversal
 **Problem:** [Binary Tree Preorder Traversal]
 (https://leetcode.com/problems/binary-tree-preorder-traversal/)
 (https://www.hackerrank.com/challenges/tree-preorder-traversal/problem)
+def preorder(root, res):
+    #base condition 
+    if not root:
+        return 
+    #logic 
+    res.append(root.val)
+    preorder(root.left, res)
+    preorder(root.right, res)
+
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        preorder(root, res)
+        return res  
+
 
 3. Postorder Traversal
 **Problem:** [Binary Tree Postorder Traversal]
