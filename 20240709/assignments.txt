@@ -1,9 +1,47 @@
 Q7
     Symmetric Tree (LeetCode 101)
     https://leetcode.com/problems/symmetric-tree/description/
+
+### Problem Explanation:
+A tree is symmetric if:
+- The root node has two subtrees that are mirrors of each other.
+- Each subtree's left child mirrors the other subtree's right child.
+
+### Solution Approach:
+To determine if the tree is symmetric, 
+we need to compare the left and right subtrees recursively. 
+We'll use a helper function that checks 
+if two trees are mirrors of each other.
+
 Q8
     **Invert Binary Tree (LeetCode 226)**
     https://leetcode.com/problems/invert-binary-tree/
+
+### Problem Explanation:
+Given the root of a binary tree, invert the tree, and return its root.
+
+### Solution Approach:
+We can solve this problem using a recursive approach. 
+For each node, 
+    we swap its left and right children, and 
+    then recursively invert 
+        the left and right subtrees.
+
 Q9 
     **Path Sum (LeetCode 112)**
     https://leetcode.com/problems/path-sum/
+
+### Problem Explanation:
+Given the root of a binary tree and an integer target sum, 
+determine if the tree has a root-to-leaf path 
+such that the sum of the node values along the path equals the target sum.
+
+A leaf is a node with no children.
+
+### Solution Approach:
+We can solve this problem 
+    using a recursive depth-first search (DFS) approach. 
+For each node, subtract the node's value from the target sum, 
+and recursively check its left and right subtrees with the updated sum. 
+If we reach a leaf node and the remaining sum equals the leaf's value, 
+we have found a valid path.
