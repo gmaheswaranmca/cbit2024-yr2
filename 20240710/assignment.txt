@@ -1,0 +1,18 @@
+Q:
+Convert Sorted Array to Binary Search Tree
+https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+
+Explanation:
+- The solution converts 
+    a sorted array 
+    into 
+    a height-balanced BST.
+- It finds the middle element of the array to use as the root, 
+    then recursively constructs 
+        the left 
+            and 
+        right subtrees 
+            using 
+                the left 
+                    and 
+                right halves of the array.
