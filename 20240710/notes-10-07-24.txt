@@ -1,0 +1,7 @@
+Python - Core Language Concepts 
+       - OOP 
+       - DS like queue, stack, linked lists 
+       - Algorithms searching, sortings 
+       - ADSA - Tree, Binary Tree, 
+                Problems on platform (leetcode)
+--- --- --- --- --- --- --- --- ---                 

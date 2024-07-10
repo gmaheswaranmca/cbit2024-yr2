@@ -1,0 +1,45 @@
+Q: 
+Search in a Binary Search Tree
+https://leetcode.com/problems/search-in-a-binary-search-tree/
+
+**Explanation:**
+- The solution uses the property of BSTs 
+    where the left subtree contains values less than the root, 
+    and the right subtree contains values greater than the root.
+- If the current node is `None` or its value matches the search value, 
+    return the current node.
+- Recursively 
+    search 
+        in the left subtree 
+            if the search value is less than the current node's value, 
+        or 
+        in the right subtree 
+            if it is greater.
+
+Q: 
+Insert into a Binary Search Tree
+https://leetcode.com/problems/insert-into-a-binary-search-tree/
+
+**Explanation:**
+    - The solution inserts a new value into 
+        the BST while maintaining its properties.
+    - If the current node is `None`, 
+        create a new node with the value.
+    - Recursively insert 
+        into the left subtree 
+            if the value is less than the current node's value, 
+        or 
+        into the right subtree 
+            if it is greater.
+
+Q: 
+Minimum Distance Between BST Nodes
+https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+
+**Explanation:**
+    - The solution finds 
+        the minimum distance between any two nodes in a BST.
+    - It uses an inorder traversal 
+        to collect the values in a sorted list, 
+        then calculates the minimum difference 
+        between consecutive values.

@@ -1,0 +1,158 @@
+----------------- Binary Search Tree (BST) -----------------
+A binary tree where 
+    for each node, 
+        the left subtree has lesser elements than the node, and 
+        the right subtree has greater elements than the node.
+
+#### Insertion in a BST:
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def insert(root, key):
+    #base cond 
+    if root is None:
+        return TreeNode(key)
+    
+    #logic 
+    if  key > root.value:
+        root.right = insert(root.right, key)
+    else: #key < root.value 
+        root.left = insert(root.left, key)
+    return root
+```
+Tree 
+    60
+   /  \
+  30  70
+ / \    \
+20 40    80
+
+Insert 65  ?
+     60
+    / \
+  30   70
+ / \     \
+20 40    80
+
+Tree
+     60
+    / \
+  30   70
+ / \     \
+20 40    80
+
+Insert 45 ?
+     60
+    / \
+  30   70
+ / \     \
+20 40    80
+          
+    
+
+
+#### Search in a BST:
+```python
+def search(root, key):
+    #base cond 
+    if root is None or root.value == key:
+        return root
+
+    #logic 
+    if key > root.value:
+        return search(root.right, key)
+    else: #key<root.value 
+        return search(root.left, key)
+```
+     60
+    / \
+  30   70
+ / \     \
+20 40    80
+         / \
+        78  90
+#### Deletion in a BST:
+```python
+def delete_node(root, key):
+    #base cond 
+    if root is None:
+        return root
+
+    #logic 
+    # If the key to be deleted is smaller than the root's value,
+    # then it lies in the left subtree
+    if key < root.value:
+        root.left = delete_node(root.left, key) 
+    # If the key to be deleted is greater than the root's value,
+    # then it lies in the right subtree    
+    elif key > root.value:
+        root.right = delete_node(root.right, key)
+    # If the key is the same as the root's value, 
+    # then this is the node to be deleted
+    else:
+        # Node with only one child or no child
+        if root.left is None:
+            return root.right
+        elif root.right is None:
+            return root.left
+
+        # Node with two children: Get the in-order successor (smallest in the right subtree)
+        temp = min_value_node(root.right)
+        # Copy the in-order successor's content to this node
+        root.value = temp.value
+        # Delete the in-order successor
+        root.right = delete_node(root.right, temp.value)
+    return root
+
+def min_value_node(node):
+    current = node
+    while current.left is not None: 
+        current = current.left
+    return current
+```
+
+Initially, the BST is:
+    50
+   /  \
+  30  70
+ / \  / \
+20 40 60 80
+Deleting the node with value 50:
+
+The in-order successor is 60 (smallest in the right subtree).
+Replace 50 with 60.
+Delete node 60 from the right subtree.
+The resulting BST is:
+    60
+   /  \
+  30  70
+ / \    \
+20 40    80
+
+
+
+def delete_node(root, key):
+    if root is None:
+        return root
+
+    if key < root.value:
+        root.left = delete_node(root.left, key) 
+    elif key > root.value:
+        root.right = delete_node(root.right, key)
+    else:
+        if root.left is None:
+            return root.right
+        elif root.right is None:
+            return root.left
+
+        temp = min_value_node(root.right)
+        root.value = temp.value
+        root.right = delete_node(root.right, temp.value)
+    return root
+
+
+
