@@ -16,6 +16,27 @@ https://leetcode.com/problems/search-in-a-binary-search-tree/
         in the right subtree 
             if it is greater.
 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        #base cond 
+        if root is None: 
+            return None
+        #logic 
+        if root.val == val:
+            return root
+        elif val > root.val:
+            return self.searchBST(root.right, val)
+        else: #val<root.val 
+            return self.searchBST(root.left, val)
+
+
 Q: 
 Insert into a Binary Search Tree
 https://leetcode.com/problems/insert-into-a-binary-search-tree/
@@ -32,6 +53,24 @@ https://leetcode.com/problems/insert-into-a-binary-search-tree/
         into the right subtree 
             if it is greater.
 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if not root:
+            return TreeNode(val)
+        #logic
+        if val > root.val:
+            root.right = self.insertIntoBST(root.right, val)
+        elif val < root.val:
+            root.left = self.insertIntoBST(root.left, val)
+        return root
+
 Q: 
 Minimum Distance Between BST Nodes
 https://leetcode.com/problems/minimum-distance-between-bst-nodes/
@@ -43,3 +82,27 @@ https://leetcode.com/problems/minimum-distance-between-bst-nodes/
         to collect the values in a sorted list, 
         then calculates the minimum difference 
         between consecutive values.
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def inorder(root, ar = []):
+    if root is None:
+        return     
+    inorder(root.left, ar)
+    ar.append(root.val)
+    inorder(root.right, ar)
+class Solution:
+    def minDiffInBST(self, root: Optional[TreeNode]) -> int:
+        ar = []
+        inorder(root, ar) #[1,2,3,4,6]
+        diff = []
+        N = len(ar)
+        for I in range(N-1): #1 el bef last 
+            d = abs(ar[I] - ar[I+1])
+            diff.append(d)
+        m = min(diff)
+        return m        
