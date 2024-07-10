@@ -1,0 +1,270 @@
+Understanding AVL tree rotations is 
+crucial for maintaining the balance of the tree after insertions and deletions. 
+Rotations are performed to restore the balance 
+when the balance factor of a node becomes -2 or 2. 
+Let's break down the different types of rotations:
+
+### Balance Factor
+The balance factor of a node is calculated as:
+\[ \text{Balance Factor} = \text{Height of Left Subtree} - \text{Height of Right Subtree} \]
+
+### Types of Rotations
+1. **Left Rotation (LL Rotation)**
+2. **Right Rotation (RR Rotation)**
+3. **Left-Right Rotation (LR Rotation)**
+4. **Right-Left Rotation (RL Rotation)**
+
+#### 1. Left Rotation (LL Rotation)
+Occurs when a node is inserted into the right subtree of the right subtree, causing an imbalance.
+
+**Steps:**
+- Identify the unbalanced node.
+- Perform a single left rotation.
+
+**Example:**
+Insertions: 10, 20, 30 (causes imbalance at 10)
+
+Before Rotation:
+```
+   10
+     \
+     20
+       \
+       30
+```
+
+After Left Rotation:
+```
+   20
+  /  \
+ 10   30
+```
+
+**Code Implementation:**
+```python
+def left_rotate(z):
+    y = z.right
+    T2 = y.left
+
+    # Perform rotation
+    y.left = z
+    z.right = T2
+
+    # Update heights
+    z.height = 1 + max(get_height(z.left), get_height(z.right))
+    y.height = 1 + max(get_height(y.left), get_height(y.right))
+
+    return y
+```
+
+#### 2. Right Rotation (RR Rotation)
+Occurs when a node is inserted into the left subtree of the left subtree, causing an imbalance.
+
+**Steps:**
+- Identify the unbalanced node.
+- Perform a single right rotation.
+
+**Example:**
+Insertions: 30, 20, 10 (causes imbalance at 30)
+
+Before Rotation:
+```
+   30
+   /
+  20
+  /
+ 10
+```
+
+After Right Rotation:
+```
+   20
+  /  \
+ 10   30
+```
+
+**Code Implementation:**
+```python
+def right_rotate(y):
+    x = y.left
+    T2 = x.right
+
+    # Perform rotation
+    x.right = y
+    y.left = T2
+
+    # Update heights
+    y.height = 1 + max(get_height(y.left), get_height(y.right))
+    x.height = 1 + max(get_height(x.left), get_height(x.right))
+
+    return x
+```
+
+#### 3. Left-Right Rotation (LR Rotation)
+Occurs when a node is inserted into the right subtree of the left subtree, causing an imbalance.
+
+**Steps:**
+- Perform a left rotation on the left child.
+- Perform a right rotation on the unbalanced node.
+
+**Example:**
+Insertions: 30, 10, 20 (causes imbalance at 30)
+
+Before Rotation:
+```
+   30
+   /
+  10
+    \
+    20
+```
+
+After Left-Right Rotation:
+```
+   20
+  /  \
+ 10   30
+```
+
+**Code Implementation:**
+```python
+def left_right_rotate(z):
+    z.left = left_rotate(z.left)
+    return right_rotate(z)
+```
+
+#### 4. Right-Left Rotation (RL Rotation)
+Occurs when a node is inserted into the left subtree of the right subtree, causing an imbalance.
+
+**Steps:**
+- Perform a right rotation on the right child.
+- Perform a left rotation on the unbalanced node.
+
+**Example:**
+Insertions: 10, 30, 20 (causes imbalance at 10)
+
+Before Rotation:
+```
+   10
+     \
+     30
+    /
+   20
+```
+
+After Right-Left Rotation:
+```
+   20
+  /  \
+ 10   30
+```
+
+**Code Implementation:**
+```python
+def right_left_rotate(z):
+    z.right = right_rotate(z.right)
+    return left_rotate(z)
+```
+
+### Full Implementation
+
+Here is a complete Python implementation of an AVL Tree with insertions and rotations:
+
+```python
+class TreeNode:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+        self.height = 1
+
+def get_height(node):
+    if not node:
+        return 0
+    return node.height
+
+def get_balance(node):
+    if not node:
+        return 0
+    return get_height(node.left) - get_height(node.right)
+
+def left_rotate(z):
+    y = z.right
+    T2 = y.left
+
+    # Perform rotation
+    y.left = z
+    z.right = T2
+
+    # Update heights
+    z.height = 1 + max(get_height(z.left), get_height(z.right))
+    y.height = 1 + max(get_height(y.left), get_height(y.right))
+
+    return y
+
+def right_rotate(y):
+    x = y.left
+    T2 = x.right
+
+    # Perform rotation
+    x.right = y
+    y.left = T2
+
+    # Update heights
+    y.height = 1 + max(get_height(y.left), get_height(y.right))
+    x.height = 1 + max(get_height(x.left), get_height(x.right))
+
+    return x
+
+def insert(root, key):
+    if not root:
+        return TreeNode(key)
+    elif key < root.val:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+
+    root.height = 1 + max(get_height(root.left), get_height(root.right))
+
+    balance = get_balance(root)
+
+    # Left Left Case
+    if balance > 1 and key < root.left.val:
+        return right_rotate(root)
+
+    # Right Right Case
+    if balance < -1 and key > root.right.val:
+        return left_rotate(root)
+
+    # Left Right Case
+    if balance > 1 and key > root.left.val:
+        root.left = left_rotate(root.left)
+        return right_rotate(root)
+
+    # Right Left Case
+    if balance < -1 and key < root.right.val:
+        root.right = right_rotate(root.right)
+        return left_rotate(root)
+
+    return root
+
+def pre_order_traversal(node):
+    if not node:
+        return
+    print(f"{node.val} ", end="")
+    pre_order_traversal(node.left)
+    pre_order_traversal(node.right)
+
+# Example usage
+root = None
+keys = [10, 20, 30, 40, 50, 25]
+
+for key in keys:
+    root = insert(root, key)
+
+print("Pre-order traversal of the constructed AVL tree is:")
+pre_order_traversal(root)
+```
+
+This implementation covers all four types of rotations 
+to maintain balance in the AVL tree after insertions.

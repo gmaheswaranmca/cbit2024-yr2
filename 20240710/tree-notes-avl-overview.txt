@@ -1,0 +1,302 @@
+------- AVL tree: ---------
+- An AVL tree is a self-balancing binary search tree 
+    where the difference in heights between the 
+        left 
+            and 
+        right subtrees of any node 
+    is at most one. 
+- This ensures that the tree remains balanced, 
+    leading to efficient search.
+
+    "difference in heights between the 
+        left 
+            and 
+        right subtrees of any node
+        is called 'balance factor'"
+
+
+### Properties of an AVL Tree
+    1. **Binary Search Tree (BST) Property**: 
+        For any node, 
+            all values in its left subtree are less than its value, and 
+            all values in its right subtree are greater than its value.
+    2. **Balance Factor**: 
+        For any node, 
+            the height difference between its left and right subtrees is at most 1. 
+            This is called the balance factor, which can be -1, 0, or 1.
+
+### Operations in an AVL Tree
+1. **Insertion**: 
+    Inserting a new node may unbalance the tree. 
+    The tree must be rebalanced using rotations.
+2. **Deletion**: 
+    Deleting a node may unbalance the tree. 
+    The tree must be rebalanced using rotations.
+3. **Rotations**: 
+    There are four types of rotations used to balance the tree:
+   - **Right Rotation (RR Rotation)**
+   - **Left Rotation (LL Rotation)**
+   - **Left-Right Rotation (LR Rotation)**
+   - **Right-Left Rotation (RL Rotation)**
+
+
+We are balancing the BST during insertion and deletion 
+by the concept rotations.
+    base rotations: 
+    1. left rotation 
+    2. right rotation 
+    combination 
+    left then right -> LR 
+    right then left -> RL 
+
+    AVL Insertion = BST Insertion + {Rotation}
+    AVL Deletion = BST Deletion + {Rotation}
+
+
+### Rotations
+
+#### Right Rotation (RR Rotation)
+
+```
+    y                           x
+   / \                        /   \
+  x   T3    --->            T1     y
+ / \                              / \
+T1  T2                           T2  T3
+```
+
+- Here, `x` becomes the new root of the subtree, 
+    and `y` becomes the right child of `x`.
+
+#### Left Rotation (LL Rotation)
+
+```
+  x                               y
+ /  \                           /   \
+T1    y    --->                x     T3
+     / \                      /  \
+    T2  T3                   T1   T2
+```
+
+- Here, `y` becomes the new root of the subtree, 
+    and `x` becomes the left child of `y`.
+
+#### Left-Right Rotation (LR Rotation) !!!Fix Later
+
+```
+  z                               z                            x
+ /  \                           /  \                         /   \
+T1   y     --->               T1    x        --->          z     y
+     / \                            /  \                   / \   / \
+    x   T3                         T2   y                 T1  T2 T3  T4
+   / \                                 /  \
+  T2  T4                              T3   T4
+```
+
+- A left rotation 
+        followed by a 
+    right rotation.
+
+#### Right-Left Rotation (RL Rotation) !!!Fix Later
+
+```
+  x                               x                             y
+ /  \                           /  \                          /   \
+T1    z    --->               T1    y        --->           x      z
+     / \                            /  \                   / \    / \
+    y   T4                         T2   z                 T1  T2 T3  T4
+   / \                                 /  \
+  T2  T3                              T3   T4
+```
+
+- A right rotation 
+        followed by a 
+    left rotation.
+
+Summary of Imbalance Cases
+LL Case: 
+    Imbalance caused by insertion into the left subtree of the left child. 
+    Fixed with a Right Rotation.
+    if balance > 1 and key < node.left.value:
+        return right_rotate(node)
+RR Case: 
+    Imbalance caused by insertion into the right subtree of the right child. 
+    Fixed with a Left Rotation.
+    if balance < -1 and key > node.right.value:
+        return left_rotate(node) 
+LR Case: 
+    Imbalance caused by insertion into the right subtree of the left child. 
+    Fixed with a 
+        Left Rotation 
+            followed by a 
+        Right Rotation.
+    if balance > 1 and key > node.left.value:
+        node.left = left_rotate(node.left)
+        return right_rotate(node)
+RL Case: 
+    Imbalance caused by insertion into the left subtree of the right child. 
+    Fixed with a 
+        Right Rotation 
+            followed by a 
+        Left Rotation.
+    if balance < -1 and get_balance(root.right) > 0:
+        root.right = right_rotate(root.right)
+        return left_rotate(root)
+
+### Insertion in an AVL Tree
+Let's implement an insertion function that ensures the tree remains balanced.
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+        self.height = 1
+
+def get_height(node):
+    if not node:    # (node == None) | (not node)
+        return 0
+    return node.height
+
+def get_balance(node):
+    if not node:
+        return 0
+    return get_height(node.left) - get_height(node.right)
+
+def right_rotate(y):
+    #init 
+    x = y.left
+    T2 = x.right
+    #rotate
+    x.right = y
+    y.left = T2
+    #adjust height 
+    y.height = max(get_height(y.left), get_height(y.right)) + 1
+    x.height = max(get_height(x.left), get_height(x.right)) + 1
+    return x
+
+def left_rotate(x):
+    #init
+    y = x.right
+    T2 = y.left
+    #rotate 
+    y.left = x
+    x.right = T2
+    #adjust height 
+    x.height = max(get_height(x.left), get_height(x.right)) + 1
+    y.height = max(get_height(y.left), get_height(y.right)) + 1
+    return y
+
+def insert(node, key):
+    if not node:
+        return TreeNode(key)
+    elif key < node.value:
+        node.left = insert(node.left, key)
+    else:
+        node.right = insert(node.right, key)
+    
+    node.height = max(get_height(node.left), get_height(node.right)) + 1
+    balance = get_balance(node)
+    
+    # Left Left (LL) Case
+    if balance > 1 and key < node.left.value:
+        return right_rotate(node)
+
+    # Left Right (LR) Case
+    if balance > 1 and key > node.left.value:
+        node.left = left_rotate(node.left)
+        return right_rotate(node)
+
+    # Right Right (RR) Case
+    if balance < -1 and key > node.right.value:
+        return left_rotate(node)    
+    
+    # Right Left (RL) Case
+    if balance < -1 and key < node.right.value:
+        node.right = right_rotate(node.right)
+        return left_rotate(node)
+    
+    return node
+```
+
+### Deletion in an AVL Tree
+The deletion process in an AVL tree is similar to that in a BST, 
+but after deletion, 
+we must rebalance the tree using rotations.
+
+```python
+def min_value_node(node):
+    if node is None or node.left is None:
+        return node
+    return min_value_node(node.left)
+
+def delete_node(root, key):
+    if not root:
+        return root
+    elif key < root.value:
+        root.left = delete_node(root.left, key)
+    elif key > root.value:
+        root.right = delete_node(root.right, key)
+    else:
+        if root.left is None:
+            temp = root.right
+            root = None
+            return temp
+        elif root.right is None:
+            temp = root.left
+            root = None
+            return temp
+        temp = min_value_node(root.right)
+        root.value = temp.value
+        root.right = delete_node(root.right, temp.value)
+    
+    if root is None:
+        return root
+    
+    root.height = max(get_height(root.left), get_height(root.right)) + 1
+    balance = get_balance(root)
+    
+    # Left Left (LL) Case
+    if balance > 1 and get_balance(root.left) >= 0:
+        return right_rotate(root)
+    
+    # Left Right (LR) Case
+    if balance > 1 and get_balance(root.left) < 0:
+        root.left = left_rotate(root.left)
+        return right_rotate(root)
+    
+    # Right Right (RR) Case
+    if balance < -1 and get_balance(root.right) <= 0:
+        return left_rotate(root)
+    
+    # Right Left (RL) Case
+    if balance < -1 and get_balance(root.right) > 0:
+        root.right = right_rotate(root.right)
+        return left_rotate(root)
+    
+    return root
+```
+
+### Example Usage
+
+```python
+# Create the AVL tree
+root = None
+keys = [10, 20, 30, 40, 50, 25]
+
+for key in keys:
+    root = insert(root, key)
+
+# Delete node with value 30
+root = delete_node(root, 30)
+```
+
+### Conclusion
+
+AVL trees ensure that 
+    the height of the tree is logarithmic in the number of nodes, 
+    which guarantees efficient search.
+    
+    The key operations in AVL trees are rotations (LL, RR, LR, and RL) 
+    used to maintain balance after insertions and deletions. 

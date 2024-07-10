@@ -1,0 +1,232 @@
+### AVL Tree Insertion Explained with an Example
+
+AVL trees are self-balancing binary search trees. 
+The balance factor of a node is the height difference between the left and right subtrees. 
+An AVL tree maintains a balance factor of -1, 0, or 1 for every node. 
+If the balance factor goes outside this range after an insertion, 
+rotations are performed to restore the balance.
+
+### Rotations in AVL Trees
+
+1. **Left Rotation (LL Rotation)**
+2. **Right Rotation (RR Rotation)**
+3. **Left-Right Rotation (LR Rotation)**
+4. **Right-Left Rotation (RL Rotation)**
+
+Let's go through an example of inserting nodes into an AVL tree 
+and performing necessary rotations to keep it balanced.
+
+### Example
+
+Insert the following sequence of numbers into an initially empty AVL tree: 
+10, 20, 30, 40, 50, 25.
+
+### Steps:
+
+#### 1. Insert 10:
+```
+   10
+```
+The tree is balanced.
+
+#### 2. Insert 20:
+```
+   10
+     \
+     20
+```
+The tree is balanced.
+
+#### 3. Insert 30:
+```
+   10
+     \
+     20
+       \
+       30
+```
+The tree is unbalanced (Right-Right case), requiring a left rotation at node 10.
+
+**Left Rotation at 10:**
+```
+   20
+  /  \
+ 10   30
+```
+The tree is balanced.
+
+#### 4. Insert 40:
+```
+   20
+  /  \
+ 10   30
+         \
+         40
+```
+The tree is balanced.
+
+#### 5. Insert 50:
+```
+   20
+  /  \
+ 10   30
+         \
+         40
+           \
+           50
+```
+The tree is unbalanced (Right-Right case), requiring a left rotation at node 30.
+
+**Left Rotation at 30:**
+```
+   20
+  /  \
+ 10   40
+      / \
+     30  50
+```
+The tree is balanced.
+
+#### 6. Insert 25:
+```
+   20
+  /  \
+ 10   40
+      / \
+     30  50
+    /
+   25
+```
+The tree is unbalanced (Right-Left case), requiring a right-left rotation at node 40.
+
+**Right Rotation at 40:**
+```
+   20
+  /  \
+ 10   30
+      / \
+     25  40
+           \
+           50
+```
+
+**Left Rotation at 20:**
+```
+   30
+  /  \
+ 20   40
+ / \    \
+10  25  50
+```
+The tree is now balanced.
+
+### Code Implementation
+
+Here is a Python implementation of AVL Tree Insertion:
+
+```python
+class TreeNode:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+        self.height = 1
+
+def get_height(node):
+    if not node:
+        return 0
+    return node.height
+
+def get_balance(node):
+    if not node:
+        return 0
+    return get_height(node.left) - get_height(node.right)
+
+def left_rotate(z):
+    y = z.right
+    T2 = y.left
+
+    # Perform rotation
+    y.left = z
+    z.right = T2
+
+    # Update heights
+    z.height = 1 + max(get_height(z.left), get_height(z.right))
+    y.height = 1 + max(get_height(y.left), get_height(y.right))
+
+    return y
+
+def right_rotate(y):
+    x = y.left
+    T2 = x.right
+
+    # Perform rotation
+    x.right = y
+    y.left = T2
+
+    # Update heights
+    y.height = 1 + max(get_height(y.left), get_height(y.right))
+    x.height = 1 + max(get_height(x.left), get_height(x.right))
+
+    return x
+
+def insert(root, key):
+    if not root:
+        return TreeNode(key)
+    elif key < root.val:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+
+    root.height = 1 + max(get_height(root.left), get_height(root.right))
+
+    balance = get_balance(root)
+
+    # Left Left Case
+    if balance > 1 and key < root.left.val:
+        return right_rotate(root)
+
+    # Right Right Case
+    if balance < -1 and key > root.right.val:
+        return left_rotate(root)
+
+    # Left Right Case
+    if balance > 1 and key > root.left.val:
+        root.left = left_rotate(root.left)
+        return right_rotate(root)
+
+    # Right Left Case
+    if balance < -1 and key < root.right.val:
+        root.right = right_rotate(root.right)
+        return left_rotate(root)
+
+    return root
+
+def pre_order_traversal(node):
+    if not node:
+        return
+    print(f"{node.val} ", end="")
+    pre_order_traversal(node.left)
+    pre_order_traversal(node.right)
+
+# Example usage
+root = None
+keys = [10, 20, 30, 40, 50, 25]
+
+for key in keys:
+    root = insert(root, key)
+
+print("Pre-order traversal of the constructed AVL tree is:")
+pre_order_traversal(root)
+```
+
+### Explanation:
+
+- **TreeNode Class:** Defines a node in the AVL tree, which contains value (`val`), left and right children, and height.
+- **get_height():** Returns the height of the node.
+- **get_balance():** Calculates the balance factor of the node.
+- **left_rotate() and right_rotate():** Functions to perform left and right rotations respectively.
+- **insert():** Inserts a node into the AVL tree and balances it using rotations if necessary.
+- **pre_order_traversal():** Traverses the tree in pre-order for checking the structure.
+
+The above example demonstrates how AVL tree insertion ensures the tree remains balanced by performing rotations whenever necessary.
