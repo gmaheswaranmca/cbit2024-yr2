@@ -35,8 +35,8 @@ Insert 65  ?
      60
     / \
   30   70
- / \     \
-20 40    80
+ / \   / \
+20 40  65 80
 
 Tree
      60
@@ -51,7 +51,8 @@ Insert 45 ?
   30   70
  / \     \
 20 40    80
-          
+     \
+     45     
     
 
 
@@ -59,11 +60,13 @@ Insert 45 ?
 ```python
 def search(root, key):
     #base cond 
-    if root is None or root.value == key:
-        return root
+    if root is None: 
+        return None
 
     #logic 
-    if key > root.value:
+    if root.value == key:
+        return root
+    elif key > root.value:
         return search(root.right, key)
     else: #key<root.value 
         return search(root.left, key)
@@ -144,15 +147,19 @@ def delete_node(root, key):
     elif key > root.value:
         root.right = delete_node(root.right, key)
     else:
+        #no child, single child 
         if root.left is None:
             return root.right
         elif root.right is None:
             return root.left
-
+        #two childs 
         temp = min_value_node(root.right)
         root.value = temp.value
         root.right = delete_node(root.right, temp.value)
     return root
 
 
-
+Deletion of BST: 
+    1. no child 
+    2. single child 
+    3. two child 

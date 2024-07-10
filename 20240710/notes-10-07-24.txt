@@ -4,4 +4,13 @@ Python - Core Language Concepts
        - Algorithms searching, sortings 
        - ADSA - Tree, Binary Tree, 
                 Problems on platform (leetcode)
---- --- --- --- --- --- --- --- ---                 
+--- --- --- --- --- --- --- --- --- 
+BST 
+    search, insert, delete 
+BST 
+    leetcode problems 
+AVL 
+    rotations, insert, Delete
+BST 
+    assignment 
+--- --- --- --- --- --- --- --- ---     
