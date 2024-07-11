@@ -11,7 +11,7 @@ A red-black tree satisfies the following properties:
 4. Red Property: 
     If a red node has children, 
     then the children are always black.
-    "red children are black"
+    "red node children are black"
 5. Black-depth Property: 
     For each node, 
         number of black nodes 

@@ -50,6 +50,30 @@ Steps
 
 Q **Construct Binary Tree from Preorder and Inorder Traversal** - [LeetCode 105]
 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+
+
+Given two integer arrays preorder and inorder where preorder is 
+the preorder traversal of a binary tree and inorder is 
+the inorder traversal of the same tree, 
+construct and return the binary tree.
+
+Example 1:
+   Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+   Output: [3,9,20,null,null,15,7]
+
+Example 2:
+   Input: preorder = [-1], inorder = [-1]
+   Output: [-1] 
+
+Constraints:
+   1 <= preorder.length <= 3000
+   inorder.length == preorder.length
+   -3000 <= preorder[i], inorder[i] <= 3000
+   preorder and inorder consist of unique values.
+   Each value of inorder also appears in preorder.
+   preorder is guaranteed to be the preorder traversal of the tree.
+   inorder is guaranteed to be the inorder traversal of the tree.
+
 ### Approach to Solve
 
 1. **Understanding the Relationship**:
@@ -73,6 +97,37 @@ https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-tr
 
 Q **Lowest Common Ancestor of a Binary Tree** - [LeetCode 236]
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+
+Given a binary tree, find the lowest common ancestor (LCA) 
+of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: 
+“The lowest common ancestor is defined 
+between two nodes p and q as the lowest node 
+in T that has both p and q as descendants 
+(where we allow a node to be a descendant of itself).”
+
+
+Example 1:
+   Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+   Output: 3
+   Explanation: The LCA of nodes 5 and 1 is 3.
+
+Example 2:
+   Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+   Output: 5
+   Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+
+Example 3:
+   Input: root = [1,2], p = 1, q = 2
+   Output: 1
+   
+Constraints:
+   The number of nodes in the tree is in the range [2, 105].
+   -109 <= Node.val <= 109
+   All Node.val are unique.
+   p != q
+   p and q will exist in the tree.
 
 ### Approach to Solve
 1. **Recursive DFS Approach**:
@@ -100,9 +155,39 @@ https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 Q
 **Kth Smallest Element in a BST** - [LeetCode 230]
 https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+Given the root of a binary search tree, and an integer k, 
+return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+Example 1:
+   Input: root = [3,1,4,null,2], k = 1
+   Output: 1
+
+Example 2:
+   Input: root = [5,3,6,2,4,null,null,1], k = 3
+   Output: 3
+ 
+Constraints:
+   The number of nodes in the tree is n.
+   1 <= k <= n <= 104
+   0 <= Node.val <= 104
+
 
 Approach:
     inorder ie recursion 
+
+def inorder(root, ar):
+    if not root:
+        return 
+    inorder(root.left, ar)
+    ar.append(root.val)
+    inorder(root.right,ar)
+    
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        ar = []  
+        inorder(root,ar)
+        return ar[k-1]  
+
 
 Q
 **Range Sum of BST** - [LeetCode 938]
@@ -112,3 +197,22 @@ https://leetcode.com/problems/range-sum-of-bst/
    - Perform a Depth-First Search (DFS) starting from the root of the tree.
    - Use the BST property to decide whether to explore left or right subtrees or to add the current node's value to the sum.
    - Traverse each node and add its value to the sum if it lies within the range `[L, R]`.
+
+   # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def inorder(root, ar,low,high):
+    if not root:
+        return 
+    inorder(root.left, ar,low,high)
+    if root.val >= low and root.val <= high:
+        ar.append(root.val)
+    inorder(root.right,ar,low,high)
+class Solution:
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        ar = []
+        inorder(root,ar,low,high)
+        return sum(ar)
