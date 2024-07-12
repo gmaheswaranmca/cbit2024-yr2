@@ -4,7 +4,7 @@ graph = {
     'E' : ['B','F'], 'F' : ['C','E']
 }
 visited = set() #to mark the visited nodes 
-#DFS uses stack to do traversal 
+#DFS uses recursion to do traversal 
 def dfs(graph, node):
     global visited 
 

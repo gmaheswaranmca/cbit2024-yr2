@@ -1,0 +1,32 @@
+1. quick sort
+    "the sort 
+        where we pick an element as the pivot 
+        and we find the place for pivot in a way that 
+            lesser values before the pivot 
+            greater values before the pivot" 
+    i. pick pivot element ii. find pivot place iii. pivot is sorted 
+    [lesser list] + [pivot] + [greater list]
+
+    Divide and Conquer : [Problem : {Sub Problems Solution}] + [Compile The Solution from recursive Sub Problems Solutions]
+    Comparison
+    Swap 
+    Partitioning - Pivot Placement 
+    in-place sorting
+
+    gi
+    100, 88, 90, 45, 85, 67, 110, 40, 77, 92, 13, 62
+
+2. merge sort 
+            0    1    2   3   4  5              6   7   8   9   10  11
+            100, 88, 90, 45, 85, 67,            110, 40, 77, 92, 13, 62
+        100, 88, 90,        45, 85, 67       110, 40, 77,             92, 13, 62
+    100          88,90     45     85,67    110      40,77            92     13,62
+               88    90          85    67          40    77         92     13    62
+-------------------------------------------------------------------------------------  
+                 88,90             67,85             40,77                   13,62
+          88,90,100         45,67,85              40,77,110             13,62,92
+              45,67,85,88,90,100                        13,40,62,77,92,110
+                               13,40,45,62,67,77,85,88,90,92,100,110  
+    Divide and Conquer 
+    Merge Process 
+    not in-place sorting [auxiliary memory to do the merge process]
