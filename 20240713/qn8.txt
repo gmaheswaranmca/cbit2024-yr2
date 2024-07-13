@@ -1,0 +1,7 @@
+
+Depth-First Search (DFS) Problems:
+
+    Word Search: 
+        Determine if a word exists in a 2D board, using DFS. 
+        Problem Link
+        https://leetcode.com/problems/word-search/
