@@ -1,9 +1,11 @@
 def merge(ar,left1,right1,right2):
     left2 = right1 + 1 
-    index1, index2 = left1, left2 #index1 <- index of first list, index2 <- index of second list 
+    
     size = right2 - left1 + 1 #size of first list + size of second list
     slist = [0 for e in range(size)] #0 filled array for the size of sorted list(slist)
+    
     sindex = 0 #index of sorted index
+    index1, index2 = left1, left2 #index1 <- index of first list, index2 <- index of second list 
     while index1 <= right1 and index2 <= right2:
         if ar[index1] < ar[index2]:
             slist[sindex] = ar[index1]

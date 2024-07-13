@@ -1,0 +1,64 @@
+https://leetcode.com/problems/search-a-2d-matrix/
+**Problem Statement:**
+Write an efficient algorithm that searches for a value in an `m x n` matrix. 
+This matrix has the following properties:
+  - Integers in each row are sorted from left to right.
+  - The first integer of each row is greater than the last integer of the previous row.
+
+**Solution Approach:**
+- **Binary Search:** 
+Treat the matrix as a flat sorted array and use binary search. 
+Convert the 1D index to 2D indices during the search. 
+This approach has a time complexity of O(log(m*n)).
+
+------------------------
+74. Search a 2D Matrix
+Solved
+Medium
+Topics
+Companies
+You are given an m x n integer matrix matrix with the following two properties:
+
+Each row is sorted in non-decreasing order.
+The first integer of each row is greater than the last integer of the previous row.
+Given an integer target, return true if target is in matrix or false otherwise.
+
+You must write a solution in O(log(m * n)) time complexity.
+
+ 
+
+Example 1:
+
+
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+Output: true
+Example 2:
+
+
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
+Output: false
+ 
+
+Constraints:
+
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 100
+-104 <= matrix[i][j], target <= 104
+------------------------
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        rows, cols = len(matrix), len(matrix[0]) # 3 x 4
+        left, right = 0, (rows * cols) - 1 #0..11
+        while left <= right: 
+            mid = (left + right) // 2
+            r,c = (mid // cols), (mid % cols) #cell indexes calc using flat(2D) array index
+            if matrix[r][c] == target:
+                return True 
+            elif target < matrix[r][c]:
+                right = mid - 1
+            else:
+                left = mid + 1
+            #end if 
+        #end while
+        return Fals
