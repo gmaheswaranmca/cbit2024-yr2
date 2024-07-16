@@ -1,0 +1,11 @@
+body, input, button { font-family: 'Lucida Console'; }
+label {display: inline-block; width:25%;}
+input {width:70%;}
+form div {margin-bottom: 10px;}
+input {background-color:bisque; 
+    border: 1px solid lightblue; padding: 3px;}
+button {background-color:cadetblue; width: 120px;
+    border: 1px solid lightsalmon; 
+    border-radius: 10px; padding: 5px;}
+p {border:1px dashed silver; padding: 10px;
+    text-align: center;}

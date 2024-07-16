@@ -1,0 +1,60 @@
+To start the HTML 5 document:
+
+<!DOCTYPE html>
+
+Start with DOCTYPE.
+
+To start the HTML 5 program:
+    1. Start with DOCTYPE
+    2. Within HTML tag 
+        have HEAD and BODY tags 
+    
+Difference between element and tag. 
+    In <HTML> ... </HTML>,
+    1. HTML is the element 
+    2. <HTML> is the opening tag of the HTML element 
+    3. </HTML> is the closing tag of the HTML element 
+HTML document is elements hierarchy 
+    So, HTML tag has children HEAD and BODY tags.
+
+HEAD tag use: 
+    To define the HTML document headers: 
+        1. To have the tilte of the document 
+        2. To have the external style sheet link 
+        3. To have the external script link 
+        4. To have internal style sheet 
+        5. To have internal script 
+        6. To tell the search engine, 
+            about the web site - description in meta tag 
+            the keywords for our site in meta tag 
+    This is not UI presented for user. Its for background purpose.
+
+BODY tag use:
+    To print the document in the browser, 
+    the contents are presented inside the BODY tag 
+
+To print the headings:
+    H1 H2 ... H6 
+    six heading levels can be used.
+
+To print the paragraph:
+    use P tag 
+
+To print the numbered list:
+    use OL and LI tags
+        OL - ordered list 
+        LI - line item within OL 
+    types of the numberings: 
+        decimal         type="1"
+        roman lower     type="i"
+        roman upper     type="I"
+        alphabet upper  type="A"
+        alphabet lower  type="a"
+
+To print the bulletted list:
+    use UL and LI tags
+        UL - unordered list 
+        LI - line item within UL 
+        
+    types of the bullets: 
+        square, disc, circle 

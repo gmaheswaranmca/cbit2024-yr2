@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Square Calculator</title>
+    <link rel="stylesheet" type="text/css" href="square-styles.css"/>
+    <script type="text/javascript" src="square-script.js"></script>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div> 
+        <a href="sum-calc.html">Sum Calc</a> 
+        <a href="square-calc.html">Sqare Calc</a>
+        <a href="std-calc.html">Standard Calc</a> 
+    </div>
+    <h3>Square Calculator</h3>    
+    <div>
+        <form>
+            <div>
+                <label for="num">Number:</label>
+                <input type="number" id="num"/> 
+            </div>
+            <div>
+                <label for="result" id="caption">Result:</label>
+                <input type="number" id="result"/> 
+            </div>
+            <button type="button" onclick="calcSquare();">Calc Square</button>
+            <button type="button" onclick="calcCube();">Calc Cube</button>
+            <p id="answer"></p>
+        </form>
+    </div>
+</body>
+</html>

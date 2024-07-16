@@ -1,0 +1,28 @@
+BODY {
+    font-family: 'Verdana';
+}
+
+INPUT, TEXTAREA, BUTTON {
+    font-family: 'Lucida Console';
+    padding: 3px;
+    font-size: 12pt;
+}
+
+STRONG {
+    color: green;
+}
+
+EM {
+    color: orange;
+}
+
+LABEL {
+    display: inline-block;
+    width: 25%;
+}
+
+FORM DIV {
+    margin-bottom: 10px;
+}
+
+INPUT, TEXTAREA {width: 70%;}

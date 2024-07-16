@@ -1,0 +1,36 @@
+To do case studies mini projects on nimbus platform:
+
+Web Technogloies: 
+    HTML 5 / CSS 3 / Bootstrap / JavaScript / Python Flask / React JS 
+    =======================================                  --------------
+             Foundation for web site/app                     web frontend - UIs                   
+                                           ~~~~~~~~~~~~~~~~
+                                           web app 
+                                           web backend - REST APIs 
+
+
+    HTML 5          : markup content of the pages of web site 
+    CSS 3           : to look and feel the pages 
+    Bootstrap       : to use readymade styles  | UI framework 
+    JavaScript      : to make the page dynamic at client side 
+
+    Python Flask    : web app == end to end development include HTML 
+                        presentation oriented application 
+                            internally services are called within 
+                      web backend - REST APIs 
+                            - service oriented app 
+    React JS        : web frontend ie UIs 
+                            - presentation oriented app 
+                                talks to the backend to consume services 
+
+    major outcomes 
+    1. Web Design 
+        Basic HTML for web site design 
+        Basic Forms fro web app design 
+    2. Web App 
+        flask based web application development using sqlite / mysql 
+    3. Web Full Stack App 
+        backend app using python flask 
+        frontend app using React JS 
+    solve: many case studies / mini projects 
+    

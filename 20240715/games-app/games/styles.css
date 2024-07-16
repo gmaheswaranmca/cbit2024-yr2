@@ -1,0 +1,38 @@
+BODY {
+    font-family:'Segoe UI';
+}
+A {
+    text-decoration: none;    
+    background-color: orange;
+    color: purple;    
+    padding: 4px;
+    border: 1px green solid; 
+    border-radius: 20px;
+}
+FORM {
+    margin-top: 20px;
+}
+FORM DIV {
+    margin-bottom: 10px;
+}
+FORM LABEL {
+    display: inline-block; width: 25%;
+}
+FORM INPUT {
+    width: 70%;
+}
+INPUT, BUTTON {
+    font-size: 12pt; padding: 5px;
+}
+BUTTON {
+    color: darkgreen;
+    font-weight: bold;
+    background-color: wheat;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 200px;
+}
+
+TABLE BUTTON {
+    width: 100px;
+}

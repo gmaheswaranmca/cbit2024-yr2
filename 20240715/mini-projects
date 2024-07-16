@@ -1,0 +1,20 @@
+1. Design the web site for cbit 
+    with minimal pages 
+        max: 5 pages 
+        pages for instance: home page, about college, departments, my department, contact 
+2. Design the web app for vendor search app. 
+    vendor {id, name, place, location, ratings}
+
+    1. vendors/create.html 
+    2. vendors/edit.html 
+    3. vendors/list.html 
+        Search of vendor by name / type / location / ratings 
+        By name [           ]
+        ....
+        <Search>
+        #   vendor  type        location        ratings 
+        1   bytexl  college     hyderabad       5       edit delete 
+        2   sfj     corporate   bangloare       3        edit delete 
+
+    4. menu to switch between the pages 
+        "vendors list" | "create vendor"

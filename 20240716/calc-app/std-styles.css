@@ -1,0 +1,8 @@
+body, input, button { font-family: 'Lucida Console'; }
+input {background-color:bisque; width: 93%;
+    border: 1px solid lightblue; padding: 3px;}
+button {background-color:cadetblue; 
+    border: 1px solid lightsalmon; 
+    border-radius: 3px; padding: 5px;}
+button { width: 40px; height: 40px; 
+         font-size: 14pt; font-weight: bold;}

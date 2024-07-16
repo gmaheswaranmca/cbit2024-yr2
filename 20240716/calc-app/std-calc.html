@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Sum Calculator</title>
+    <link rel="stylesheet" type="text/css" href="sum-styles.css"/>
+    <script type="text/javascript" src="sum-script.js"></script>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div> 
+        <a href="sum-calc.html">Sum Calc</a> 
+        <a href="square-calc.html">Sqare Calc</a>
+        <a href="std-calc.html">Standard Calc</a> 
+    </div>
+    <h3>Sum Calculator</h3>
+    <div>
+        <form>
+            <div>
+                <label for="first">First Number:</label>
+                <input type="number" id="first"/> 
+            </div>
+            <div>
+                <label for="second">Second Number:</label>
+                <input type="number" id="second"/> 
+            </div>
+            <div>
+                <label for="result">Sum:</label>
+                <input type="number" id="result"/> 
+            </div>
+            <button type="button" 
+                onclick="calculateSum();">Calc Sum</button>
+            <p id="answer"></p>
+        </form>
+    </div>
+</body>
+</html>

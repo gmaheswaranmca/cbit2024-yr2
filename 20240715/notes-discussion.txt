@@ -1,0 +1,30 @@
+check the notes folder of this github repo.
+    - <git repo>/notes/overview.txt
+
+
+my-law-firm
+    home        home.html        DOCTYPE HTML HEAD TITLE BODY H1 P 
+    about       about.html       <A HREF=""> STRONG EM 
+    services    services.html    <UL> <LI> <OL> type 
+    careers     careers.html     TABLE TR TH TD attr:border,bordercolor,cellspacing,cellpadding,align,width
+    contact     contact.html     FORM, INPUT, BUTTON, TEXTAREA 
+
+    styles      styles.html      FONT-FAMILY, FONT-SIZE, MARGIN-BOTTOM, 
+                                 COLOR, DISPLAY:inline-block,
+                                 WIDTH  
+
+games app : online games database 
+    Page: /games/create.html 
+        New Game 
+            Game: [             ]
+            <Create> 
+
+    Page: /games/index.html 
+        List of games 
+        #   game 
+        1   PubG
+        2   Candy Crush 
+        3   Rummy    
+
+    apply some styles.
+
