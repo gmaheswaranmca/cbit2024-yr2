@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css"/>
   <script type="text/javascript" src="script.js"></script>
 </head>
-<body onload="clear()">
+<body onload="restart()">
   <div>
     <table align="center" width="150"
         cellspacing="0">
@@ -27,6 +27,12 @@
           <td id="box9"  onclick="play(8)" >X</td>
         </tr>
     </table>
+    <center>
+      <button 
+        type="button"
+        onclick="restart();">Restart game</button>
+      <p id="msg"></p>
+    </center>
   </div>
 </body>
 </html>

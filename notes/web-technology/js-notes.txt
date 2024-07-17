@@ -1,0 +1,20 @@
+//map function in array 
+let x = [10,20,30]
+let y = x.map(function(e){ return e+2;});
+console.log(y) //y=[12,22,32]
+
+//filter function in array 
+let z = x.filter(function(e){return e>=20;});
+console.log(z); //z=[20,30]
+
+//reduce function in array 
+let s = x.reduce(function(sum,e){return sum+e;},0)
+console.log(s); //s=60 sum of all elements 
+
+//reduce function to find max number in the array
+let mx = x.reduce(function(max,e){return e > max ? e : max;},x[0])
+console.log(mx)
+
+//reduce function to find min number in the array
+let mi=x.reduce(function(min,e){return e < min ? e : min;},x[0])
+console.log(mi) 
