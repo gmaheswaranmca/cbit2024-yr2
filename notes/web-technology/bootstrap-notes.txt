@@ -1,0 +1,19 @@
+"bootstrap is the UI framework"
+    - CSS framework ++
+    CSS framework: readymade styles             !!! bootstrap css 
+    ++: components used javascript as well      !!! bootstrap css + bootstrap JS 
+
+
+Introduction:
+    Official Docs: + Learning Resource 
+        Get started with Bootstrap · Bootstrap v5.3
+            https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
+            "
+            Bootstrap is a powerful, feature-packed frontend toolkit. 
+            Build anything—from prototype to production—in minutes.
+            "
+
+Learning: (Saying hi to bootstrap)
+    - https://getbootstrap.com/docs/5.3/content/typography/
+        
