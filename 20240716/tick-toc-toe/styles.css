@@ -1,0 +1,11 @@
+div { background-color: cyan; 
+    font-family: 'Verdana'; font-weight: bold; }
+td { text-align: center; width: 40px; height: 40px; cursor: pointer;}
+#second-row td{ 
+    border-top: 5px solid purple; 
+    border-bottom: 5px solid purple; 
+}
+.second-col{ 
+    border-left: 5px solid purple; 
+    border-right: 5px solid purple; 
+}

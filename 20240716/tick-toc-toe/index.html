@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tic-toc-toe</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="clear()">
+  <div>
+    <table align="center" width="150"
+        cellspacing="0">
+        <tr>
+          <td id="box1" onclick="play(0)">X</td>
+          <td id="box2" onclick="play(1)"  class="second-col">O</td>
+          <td id="box3" onclick="play(2)" >X</td>
+        </tr>
+        <tr id="second-row">
+          <td id="box4" onclick="play(3)"  >X</td>
+          <td id="box5"  onclick="play(4)"  class="second-col">O</td>
+          <td id="box6"  onclick="play(5)" >X</td>
+        </tr>
+        <tr>
+          <td id="box7"  onclick="play(6)" >X</td>
+          <td id="box8"  onclick="play(7)"  class="second-col">O</td>
+          <td id="box9"  onclick="play(8)" >X</td>
+        </tr>
+    </table>
+  </div>
+</body>
+</html>
