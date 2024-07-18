@@ -1,0 +1,17 @@
+vendor { id, name, place, type, ratings }
+    type = college, corporate, institute
+    ratings = 1..5 
+    actor/user: trainer [ freelance trainers ]
+
+"search vendors | all vendors | new vendor" - main menus 
+
+login
+    "login" - main menus 
+    login page - login.html
+    
+logged in pages 
+    "search vendors | all vendors | new vendor" - main menus | welcome username!!! logout 
+    search vendors - index.html
+    all vendors - list.html 
+    new vendor - create.html 
+    edit vendor - edit.html 

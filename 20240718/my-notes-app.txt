@@ -1,0 +1,88 @@
+notes { id, title, notes }
+    actor/user: trainer 
+
+"search notes | all notes | new notes" - main menus 
+
+login
+    "login" - main menus 
+    login page - login.html
+    
+logged in pages 
+    "search notes | all notes | new notes" - main menus | welcome username!!! logout 
+    search notes - index.html
+        search by 
+            title           [           ]
+            notes text      [           ]
+            <Search>
+    all notes - list.html 
+        # title 
+        1 bootstrap <view> <edit> <delete>
+        2 flask     <view> <edit> <delete>
+        ....
+    new notes - create.html 
+        title           [           ]
+        notes           [           ]
+        <Create>    
+    view notes - view.html 
+        title           [           ]
+        notes text      [           ]
+    edit notes - edit.html 
+        title           [           ]
+        notes           [           ]    
+        <Update> 
+
+
+    logged in header:
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<nav class="navbar navbar-expand-lg bg-success"  data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">My Notes App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Search Notes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list.html">All Notes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="create.html">New Notes</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <div class="text-light mt-2">Welcome maheswaran!!!</div>&nbsp;
+          <button class="btn btn-danger" type="button">Logout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+  login header:
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      <nav class="navbar navbar-expand-lg bg-success"  data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="login.html">My Notes App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="login.html">Login</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+  
