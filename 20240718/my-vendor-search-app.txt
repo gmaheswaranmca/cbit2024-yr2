@@ -1,3 +1,4 @@
+my-vendor-search-app
 vendor { id, name, place, type, ratings }
     type = college, corporate, institute
     ratings = 1..5 
@@ -8,7 +9,7 @@ vendor { id, name, place, type, ratings }
 login
     "login" - main menus 
     login page - login.html
-    
+
 logged in pages 
     "search vendors | all vendors | new vendor" - main menus | welcome username!!! logout 
     search vendors - index.html

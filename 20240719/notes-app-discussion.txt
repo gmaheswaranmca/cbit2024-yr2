@@ -1,0 +1,8 @@
+Routes definitions:
+base url: https://server
+   Route             menu                           templates       function    
+1. '/'              "search notes"                  "index.html"    notes_index()
+2. '/list'          "all notes"                     "list.html"     notes_list() 
+3. '/create'        "new notes"                     "create.html"   notes_create()
+4. '/view/<id>'     "all notes"->'view notes'       "view.html"     notes_view(id)
+5. '/edit/<id>'     "all notes"->'edit notes'       "edit.html"     notes_edit(id)

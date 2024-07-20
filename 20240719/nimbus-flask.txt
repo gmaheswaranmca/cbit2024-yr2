@@ -1,0 +1,113 @@
+at terminal:
+$ flask --app app.py run --host=0.0.0.0 --port=5000 --debug
+
+    to stop the flask server: 
+    "Ctrl + C" in the terminal 
+at browser:
+    run the server 
+    for example "https://gb70h6-5000.ocws.app"
+
+to do the changes in the app, the steps:
+    1. stop the server 
+    2. do the changes 
+    3. start the server 
+    4. check in the browser 
+
+
+non-template based mini web site:
+-----------app.py-----------------
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/hello")
+def hello_world():
+    return "<p>Hello, World!</p><b>Maheswaran</b>"
+
+@app.route("/")
+def index():
+    return "<h3>Home Page</h3>"    
+@app.route("/about")
+def about():
+    return "<h3>About Us</h3>"  
+@app.route("/services")
+def services():
+    return "<h3>Services</h3>"     
+---------------------------------------------
+
+template based mini web site:
+-----------app.py-----------------
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template('index.html')    
+@app.route("/about")
+def about():
+    return render_template('about.html')   
+@app.route("/services")
+def services():
+    return render_template('services.html') 
+--------------/templates/index.html------------------
+<h3>Home Page</h3>
+--------------/templates/about.html-------------------------------
+<h3>About Us</h3>
+--------------/templates/services.html-------------------------------
+<h3>Services</h3>
+---------------------------------------------
+
+
+template based mini web site: (HTML5)
+-----------app.py-----------------
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template('index.html')    
+@app.route("/about")
+def about():
+    return render_template('about.html')   
+@app.route("/services")
+def services():
+    return render_template('services.html') 
+--------------/templates/index.html------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Company</title>
+</head>
+<body>
+    <h3>Home Page</h3>
+</body>
+</html>
+--------------/templates/about.html-------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Company</title>
+</head>
+<body>
+    <h3>About Us</h3>
+</body>
+</html>
+--------------/templates/services.html-------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Company</title>
+</head>
+<body>
+    <h3>Services</h3>
+</body>
+</html>
+---------------------------------------------

@@ -1,0 +1,44 @@
+what is flask?
+    python leading web development framework.
+    - web app
+    - web api app 
+
+what is web app?
+    flask with its template engine help us to develop
+    the end to end web app to serve as pages.
+
+    here, we develop "presentation oriented app". 
+    the app includes the business logic like 
+    to connect to database and other resources. 
+
+what is web api app? 
+    Web api application is collections API end points.
+    web api app is also called backend app. 
+
+    backend app is also called server app, api provider.
+
+    backend app will deal only the resources of output format 
+    JSON / XML / Plain Text. 
+
+    The api app is the "service oriented app".
+
+what we do with flask?
+    We will use nimbus flask work space to develop web application and backend app.
+
+Is there any other web dev framework there in the market?
+    Python 
+        flask   - easy learning curve 
+                  solves only web dev 
+        django  - learning curve is little high than flask 
+                  all the batteries includes 
+    Javascript (node JS)
+        Express JS - market leader 
+    Java 
+        Spring | Spring Boot 
+        Java EE 
+    C#
+        ASP.NET / Web API 
+    etc 
+
+
+
