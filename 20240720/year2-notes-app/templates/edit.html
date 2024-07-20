@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Edit Notes{% endblock %}
+{% block main %}
+      <h3><a href="list.html" class="btn btn-light">Go Back</a>Edit Notes</h3>
+      <div class="container">
+        <div class="form-group m-2">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" class="form-control"
+              placeholder="Type here the title..."/>
+        </div>
+        <div class="form-group m-2">
+          <label for="notes" class="form-label">Notes</label>
+          <input type="text" id="notes" class="form-control"
+              placeholder="Type here the notes..."/>
+        </div>
+        <button type="button" class="btn btn-danger">Update</button>
+      </div>
+{% endblock %}
