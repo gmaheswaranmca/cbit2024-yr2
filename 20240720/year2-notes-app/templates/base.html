@@ -15,15 +15,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% for item in [['/','Search Notes','search'],
+                          ['/list','All Notes','list'],
+                          ['/create','New Notes','create']] %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Search Notes</a>
+            {% if ( (menu == item[2]) or 
+                    (menu in ['list','edit','view'] and item[2]=='list') ) %}
+            <a class="nav-link active" aria-current="page" 
+                href="{{ item[0] }}">{{ item[1] }}</a>
+            {% else %}
+            <a class="nav-link"  href="{{ item[0] }}">{{ item[1] }}</a>
+            {% endif %}
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/list">All Notes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/create">New Notes</a>
-          </li>
+          {% endfor %}
         </ul>
         <div class="d-flex">
           <div class="text-light mt-2">Welcome maheswaran!!!</div>&nbsp;
