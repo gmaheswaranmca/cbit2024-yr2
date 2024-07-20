@@ -9,10 +9,10 @@
           </thead>
           <tbody>
             {% for note in notes %}
-            <tr> <td>{{ note['id'] }}</td> <td>{{ note['title'] }}</td> 
+            <tr> <td>{{ note.sno }}</td> <td>{{ note.title }}</td> 
               <td align="right">
-                <a href="/view/{{ note['id'] }}" class="btn btn-success">View</a>
-                <a href="/edit/{{ note['id'] }}" class="btn btn-warning">Edit</a>
+                <a href="/view/{{ note.id }}" class="btn btn-success">View</a>
+                <a href="/edit/{{ note.id }}" class="btn btn-warning">Edit</a>
                 <button type="button" class="btn btn-danger">Delete</button>
               </td> 
             </tr>

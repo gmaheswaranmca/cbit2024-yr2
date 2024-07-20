@@ -3,16 +3,22 @@
 {% block main %}
       <h3><a href="list.html" class="btn btn-light">Go Back</a>Edit Notes</h3>
       <div class="container">
+
+        <form method="POST">
         <div class="form-group m-2">
             <label for="title" class="form-label">Title</label>
             <input type="text" id="title" class="form-control"
-              placeholder="Type here the title..."/>
+              placeholder="Type here the title..." 
+              name="title" value="{{ note.title }}"/>
         </div>
         <div class="form-group m-2">
           <label for="notes" class="form-label">Notes</label>
-          <input type="text" id="notes" class="form-control"
-              placeholder="Type here the notes..."/>
+          <textarea id="notes" class="form-control"
+              placeholder="Type here the notes..."
+              name="notes">{{ note.notes }}</textarea>
         </div>
-        <button type="button" class="btn btn-danger">Update</button>
+        <button type="submit" class="btn btn-danger">Update</button>
+      </form>
+
       </div>
 {% endblock %}

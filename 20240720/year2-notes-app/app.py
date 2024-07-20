@@ -1,25 +1,49 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request, redirect ###2
+from db import noteTablesCreate, readAllNotes #
+from db import createNote, readNoteById, updateNote  ###3
+from db import search, deleteNote, Note  ###2+1
+noteTablesCreate() # db is created if not exist, tbl is created if not exist.
 app = Flask(__name__)
-
-@app.route("/")
-def notes_index():
-    return render_template('index.html')
-@app.route("/list")
+@app.route("/list",methods=['GET'])
 def notes_list():
-    notes = [
-        {'id':1,'title':'HTML 5','notes':'...'},
-        {'id':2,'title':'CSS 3','notes':'...'},
-        {'id':3,'title':'Bootstrap','notes':'...'},
-        {'id':4,'title':'Javascript','notes':'...'},
-    ]
-    return render_template('list.html',notes=notes)
-@app.route("/create")
-def notes_create():
-    return render_template('create.html')
+    notes = readAllNotes() #list of notes objects #
+    for I in range(len(notes)):
+        notes[I].sno = I + 1
+    return render_template('list.html',notes=notes)#
+@app.route("/create",methods=['GET','POST'])
+def notes_create(): ###all
+    note = Note()
+    if request.method == 'GET':
+        return render_template('create.html',note=note)
+    elif request.method == 'POST':
+        note.title = request.form['title']
+        note.notes = request.form['notes']
+        createNote(note)
+        return redirect('/list')
 @app.route("/view/<id>")
-def notes_view(id):
-    return render_template('view.html')
-@app.route("/edit/<id>")
+def notes_view(id,methods=['GET']):
+    note = readNoteById(id)
+    return render_template('view.html', note=note)
+@app.route("/edit/<id>",methods=['GET','POST'])
 def notes_edit(id):
-    return render_template('edit.html')
+    note = readNoteById(id)
+    if request.method == 'GET':
+        return render_template('edit.html',note=note)
+    elif request.method == 'POST':
+        note.title = request.form['title']
+        note.notes = request.form['notes']
+        updateNote(note)
+        return redirect('/list')
+
+@app.route("/",methods=['GET','POST'])
+def notes_index():
+    if request.method == 'GET':
+        return render_template('index.html')
+    elif request.method == 'POST':
+        title = request.form['title']
+        notes_text = request.form['notes']
+        notes = search(title,notes_text)
+        for I in range(len(notes)):
+            notes[I].sno = I + 1
+        return render_template('list.html',notes=notes)
+

@@ -6,12 +6,14 @@
         <div class="form-group m-2">
             <label for="title" class="form-label">Title</label>
             <input type="text" id="title" class="form-control"
-              placeholder="Type here the title..." readonly/>
+              placeholder="Type here the title..." readonly
+              value="{{ note.title }}"/>
         </div>
         <div class="form-group m-2">
           <label for="notes" class="form-label">Notes</label>
-          <input type="text" id="notes" class="form-control"
-              placeholder="Type here the notes..." readonly/>
+          <textarea id="notes" class="form-control"
+              placeholder="Type here the notes..." 
+              readonly>{{ note.notes }}</textarea>
         </div>
       </div>
 {% endblock %}      

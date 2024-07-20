@@ -3,17 +3,23 @@
 {% block main %}
       <h3>Search Notes</h3>
       <div class="container">
+
+        <form method="POST">
         <div class="form-group m-2">
             <label for="title" class="form-label">Title</label>
             <input type="text" id="title" class="form-control"
-              placeholder="Search by title..."/>
+              placeholder="Search by title..."
+              name="title"/>
         </div>
         <div class="form-group m-2">
           <label for="notes" class="form-label">Notes Text</label>
           <input type="text" id="notes" class="form-control"
-              placeholder="Search by notes text..."/>
+              placeholder="Search by notes text..."
+              name="notes"/>
         </div>
-        <button type="button" class="btn btn-success">Search</button>
+        <button type="submit" class="btn btn-success">Search</button>
+      </form>
+
       </div>
 {% endblock %}
 
