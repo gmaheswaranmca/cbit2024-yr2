@@ -1,0 +1,73 @@
+App 
+    THE TASTE: Sweets Factory and its Outlets
+
+DESCRIPTION:
+Whole saler and Retailer Inventory App:
+
+"The Taste" is an old sweet stall in the city and they have made good name and also money. With the money they have accumalated, they wish to setup a Factory and small outlets across the city. The outlets are created ONE BY ONE as and when the company has done enough research and they have got money to invest. Only after all procedures are completed with establishing the new outlet, and they get again suitable capital of money, they go for further expansion with new outlets.
+
+The Factory sends the prepared sweets (Assume maximum of 5 types of sweets) to the outlets.
+
+ACTORS: admin
+
+ADMIN OPERATIONS:
+login/logout
+create new outlet
+CRUD on outlets
+	assign username and password to new outlet
+Admin should be able to click on "outlets" button/icon etc. and view the grid (layout of components) of boxes, each box for an outlet and the vital information of each outlet in its box like, present day sale amount, and the quanity of each sweet left in the outlet.
+Note that we are selling a maximum of 5 vareity of sweets.
+
+View sales of each outlet (default: today, by date, by month)
+Compare the sales of outlets (summary of each month) of specific year
+
+USER (outlet manager) OPERATIONS:
+login/logout
+place new order for the sweets choosen by the customer.
+register the sales of sweets: Generate the bill for each sale
+
+TABLES/COLLECTIONS:
+outlets:
+id, outletname, passcode(6 digits), manager_name, phone_number, place, active, information
+
+sweets
+id, name, selling_price, expiry_duration, description
+
+sale_bill:
+id, outlet_id, date, bill_amount
+
+sales_items:
+id, bill_id, sweet_id, price, quantity(float)
+
+admin:
+id, username, password
+
+For every new outlet, a row/document is created in the "outlets" table/collection
+
+For every sale, a row/document is created in the "sales" table/collection
+
+
+PAGES:
+home page (1.admin_login, outlet_manager_login)
+admin logged in page(outlets, sales, logout)
+	OUTLETS: CRUD on outlets (We cannot delete an outlet, but make it inactive)
+	sales: (Default Page: list sales of all outlets of today)
+	search via: outlet_id, summary
+		via outlet_id:
+			today
+			date
+			month (Summary: total sales of each day)
+		summary
+			of specific year (total sales of each month)
+manager logged in page(new sale, logout)
+	new sale
+	sale list
+		today
+		date
+		month
+
+NOTE:
+-> Adding sweets from factory to the outlet is not developed. (Factory inventory App)
+-> It can be either done by the factory by the data of sales of the outlet where the remaining amount of all sweets can be known.
+-> mode of payment
+	cash (tendered currency, balance paid)

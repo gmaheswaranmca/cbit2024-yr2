@@ -1,0 +1,61 @@
+App 
+    GAMING CLUB App
+
+DESCRIPTION:
+The city of Mangalooru has grown into a big cosmopolitain. 
+And a innovative business man has thought of brining a gaming club 
+with in door games and advanced technological games to the people of the city.
+
+Primarily, People take membership in the club. 
+The club maintains a wallet for every member and the members 
+must add money into their wallets. 
+To keep their wallets safe, Club has set restriction 
+on the wallet with minimum balance of Rs.500 and a maximum of Rs.3000 
+which the members can withdraw.
+Minimum recharge amount will be Rs.100 and there after 
+in multiples of 100 and maximum recharge amount being Rs.2500
+Once wallet is recharged, members can choose the game they wish 
+to play and pay the game amount from their wallet.
+
+ACTORS: admin, members
+
+ADMIN OPERATIONS:
+login/logout
+Accept Customer Registration
+View Customer List
+Add New Game to the Games List (CRUD operations on games)
+Modify Existing Game (For example, change the Price of a Game)
+View Collection Of:
+Todays
+Current Month
+
+Other optional operations:
+Previous 12 months using Dashboard
+Games played in last 1 month using Dashboard
+
+MEMBER OPERATIONS:
+Register
+login/logout
+Play a Game
+Recharge Wallet
+View Recharges
+View Games Played
+
+tables/collections
+culb_collection:
+id, amount, date
+
+members:
+id, name, phone_number, wallet_balance, password
+
+recharges:
+id, member_id, date, amount
+
+transactions:
+id, member_id, date, amount
+
+games:
+id, anme, amount, description
+
+admin:
+id, name, password

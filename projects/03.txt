@@ -1,0 +1,66 @@
+App 
+    SWIMMING POOL MANAGEMENT
+
+DESCRIPTION:
+The city of Hubballi has a swimming pool run by a business man. 
+The App should help the people buy the membership and 
+it should also help the business man keep check on payments made by the learners and lastly, 
+it should help us with the list of learners whose membership validity ends this week.
+
+ACTORS: admin, learners
+
+learners can choose from the below plans:
+1 month: 4500
+2 months: 6500
+6 months: 12500
+daily pass: 70 (validity ends after one hour on the same day)
+suitable for public to practice swimming. No coaching will be given for daily pass members.
+
+ADMIN OPERATIONS:
+login/logout
+check daily collection, monthly collection
+CRUD on plans
+learner membership is approved and assign an id as soon as payment is completed.
+view list of active members
+view list of active members whose validity ends this week
+
+LEARNER OPERATIONS:
+view/list plans
+select a plan and make payment
+view last date of active plan (via id given by the admin to the learners)
+
+tables/collectionsables: 
+pool_collection:
+id, customer_id, date, amount
+
+learners:
+id, plan_id, joining_date, name, phone_number, adaahr_number, place, active (active must become false as soon as the due date expires)
+
+plans:
+id, 	name, 		amount, duration, description
+101 	one_month	4500	30
+102		two_month	6500	60
+103		six_month	12500	90
+104		daily_pass	70		1	
+
+admin:
+id, name, password
+
+PAGES:
+-> HomePage (For Users):
+It displays the welcome message.
+It displays the available plans. These plans are also hyperlinks.
+-> Pop Up Window:
+When clicked on a particular plan, a pop up window will appear and the details of the selected plan will be displayed on the pop up window. It also has 2 buttons, CANCEL which when clicked, the pop up window will close and returns to the home page. PAY NOW which when clicked, it takes to the payment window.
+-> Payment Page:
+It asks for the details of the learner like name, phone_num, adhaar, place and age and it will have the MAKE PAYMENT button, once clicked, the payment is assumed to be made and the learner row is created in the data base and the learner is acknowledged with his/her ID (created), Joining date and the Expiry date.
+-> Home Page (for Admin):
+Login page
+-> Logged In Admin Page:
+By default, list of all learners is displayed. It will also have 2 buttons: (1) membership expiring soon (2) active learners
+The new list is displayed on the same page.
+-> PLANS:
+The list of plans is displayed. CRUD operations
+-> Collection:
+By default it displays collection of each day of current month
+It also has the button: Yearly Month Wise Collection

@@ -1,0 +1,36 @@
+App 
+    Queens COFFEE
+
+DESCRIPTION:
+The Mysuru city is now having good number of people who are lookig 
+for luxury lifestyle and thus good eateries. 
+Taking advantage of this, Kings Coffee has opened a couple of branches in Mysuru. 
+Given the huge demand, the company wants to computerise the billing system. 
+Help the company with a billing system Application.
+
+The App should show/display the available beverages/products at their restaurant.
+It should take order from the customers and generate the bill.
+The billing system should help the branch to save all the sales and 
+also help then to view the summary of revenues the day and month.
+
+ACTORS: admin
+
+ADMIN OPERATIONS:
+login/logout
+
+CRUD on items
+New Order and generate bill
+check daily collection, monthly collection, weekly collection
+
+tables/collections:
+items:
+id, name, price, item_size, description
+
+order_bill:
+id, date, bill_number(auto generate), bill_amount
+
+order_items:
+id, order_id, item_id, quantity, price
+
+admin:
+id, name, password

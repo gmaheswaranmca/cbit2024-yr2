@@ -1,0 +1,36 @@
+App 
+    TREE PLANTATION NGO
+
+DESCRIPTION:
+A NGO or may be an individual has got a good job to do in the era of the climate being disturbed and being destroyed rapidly!
+The NGO plants saplings and also maintains them. The NGO may take donations from an individual donar for the nobel and wonderful selfless service.
+
+The App must help the NGO maintain a database of plantings. Each planting will happen on a specific date. A specific type of plant is planted. The NGO wishes to save the money it spent on labour, saplings, logistics, safety sticks (to safeguard the plant) and the number of saplings planted.
+
+Also, it finds relavant in storing the maintainance cost details as well.
+
+For every new planting, there must be at least one maintenance work. 
+
+Hence for every new planting row/document creation, a new maintenance row/document must be created in the maintenances table/collection. This row/collection is edited/updated when the maintenance is done.
+
+Per planting, there can 'n' number of maintenance and minimum one.
+
+ACTORS: admin
+
+ADMIN OPERATIONS:
+login/logout
+Add new tree planting details
+CRUD plantations
+CRUD Maintainances
+List top donar_name
+List distinct saplings planted
+
+tables/collections:
+plantings:
+id, planted_place, planted_date, number_of_saplings, sapling_name, donar_name, donar_phone_number, description
+
+planting_expenses: (references plantings)
+id, planting_id references id of plantings, each_sapling_amount, safety_closure_amount, safety_closure_used, logistics_amount, labour_amount, total_amount, description
+
+maintainance: table to keep track of maintainance of planted trees
+id, planting_id references id of plantings, date, amount, scheduled_maintainance_date, description

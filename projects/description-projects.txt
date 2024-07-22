@@ -1,0 +1,35 @@
+CAR WASH APP
+
+GAMING CLUB APP
+
+SWIMMING POOL MANAGEMENT
+
+Queens COFFEE
+
+THE TASTE: Sweets Factory and its Outlets
+
+TREE PLANTATION NGO
+
+
+Full Stack:
+    1. Data base design
+    2. App Designs  (draw.io)
+        Pages 
+        Business logic 
+
+        UML
+            use case 
+            sequence diagram 
+            class diagrams 
+    3. Divide the app into modules 
+        each module assign to team member 
+        one team member should be the team lead 
+            switch the team lead role everyday 
+
+Phase 1:
+    form the team
+Phase 2:
+    disussion of those projects and pick the title 
+Phase 3:
+    start from design to code and to test and deploy
+    

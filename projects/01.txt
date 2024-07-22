@@ -1,0 +1,46 @@
+App 
+    CAR WASH APP
+
+DESCRIPTION:
+The App helps both the service provider and people 
+who wish to avail easy reach to a Car wash Shop, 
+at the same time save a lot of time!
+
+The Admin can login, check list of customer appointment requests.
+
+Admin can accept the request(appointment) and assign it to specific employee.
+
+Admin may choose to reject the appointment.
+
+Admin can also view the delivered services.
+
+ACTORS: admin, Customers
+
+ADMIN CAN DO FOLLOWING OPERATIONS:
+login/logout
+View all Appointments
+Accept and Assign Appointment to a Car Wash Employee
+Reject an Appointment
+View previous 10 Appointments delivered
+View previous All Appointments delivered
+
+CUSTOMER OPERATIONS:
+Register
+login/logout
+request for appointment
+
+service types:
+1 - internal wash, 2 - external wash, 3 - comprehensive wash
+
+tables/collections:
+customers:
+id, name, phone_num, place, adhaar_number
+
+appointments:
+id, date, time, customer_id, status, service_type
+
+shop_collection:
+id, date, amount
+
+admin:
+id, name, password
