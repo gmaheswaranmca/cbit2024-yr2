@@ -1,0 +1,87 @@
+Database 
+    SQL - RDBMS
+        high availability: 99% up time 
+        stable: 100%
+        foundation: table (rows), join
+            pk, fk 
+        data model: normalized data model 
+
+        Oracle      : PL/SQL : ANSI SQL + Oracle specific comand
+        SQL Server  : T-SQL : ANSI SQL + SQL Server specific comand
+        MySQL       : ANSI SQL + specific cmds
+        SQLite      : ANSI SQL + specific cmds
+        Postgres    : ANSI SQL + specific cmds  
+
+        ANSI SQL is standard SQL 
+                 is implemented in above said data base vendors RDBMS. 
+
+    noSQL 
+        mongo db:
+            high availability: 99.99999999% up time 
+            stable: 99%
+            document based nosql 
+
+            areas:  app development, 
+                    data models ML / DL / AI , 
+                    infra structure - logs / auditing etc, 
+                    app delployemnt - caching the app pages/data 
+
+            models: normalized model    
+                            orders : id, order_date, bill_number, bill_amount
+                            order_items: id, item_id, order_id, qty, price, amount 
+
+                            Here, in order: id is pk 
+                                  in order_items: id is pk, item_id and order_id are fk  
+                    hierarchical model:
+                            orders: id, order_date, bill_number, bill_amount, items: [{item_id, qty, price, amount },
+                                                                                     {item_id, qty, price, amount }....] 
+            replicas: scalability (master 1 r/w- childs - 3 reads) - load balancing - load balancer 
+            horizontal scaling: larger datasets - 9TB - each 1.5TB into different server : 6 servers needed 
+                    all other datasets assum 1 server 
+                    shrads - shradings 
+
+        cassandra: peer to peer ha 
+            high availability: 100% up time 
+            stable: 99%
+            focus: no join, not normalized, no reference 
+            foundation: denormalized data 
+            cassandra query language : CQL     
+
+            replicas: scalability 
+
+            replicas: scalability (master 1 or many and each may do read or write or both) 
+                            - load balancing - load balancer 
+            horizontal scaling: partitionings 
+                    larger datasets - 9TB - each 1.5TB into different server : 6 servers needed 
+                    all other datasets assum 1 server
+            
+SQL : foundation is query 
+    DDL : define objects table, view, procedure, trigger etc 
+        CREATE TABLE  
+        ALTER TABLE 
+        DROP TABLE 
+        ---
+        TRUCATE TABLE 
+    DML : deals the operations on rows of the tables 
+        INSERT 
+            one 
+            many 
+        UPDATE 
+            one 
+            many 
+        DELETE
+            one 
+            many 
+
+        "
+        SELECT 
+        "
+            -- selectors, tables selectors, filtering, sorting, aggregations, 
+                grouping | aggregations | filtering
+            -- join | union 
+    TCL : transaction :: ACID (automicity, consistency, isolation, durability)
+        commit / rollback   | begin transaction
+
+    DCL :
+        'grant' the privileges to user 
+        'revoke' the privileges from user 

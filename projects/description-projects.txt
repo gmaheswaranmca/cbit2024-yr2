@@ -11,10 +11,13 @@ THE TASTE: Sweets Factory and its Outlets
 TREE PLANTATION NGO
 
 
-Full Stack:
+Full Stack: sqlite / mysql / mongo - flask backend - react frontend - bootstrap
+
     1. Data base design
-    2. App Designs  (draw.io)
-        Pages 
+    2. App Designs  
+    
+    (draw.io)
+        Pages design using bootstrap
         Business logic 
 
         UML
