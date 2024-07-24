@@ -1,0 +1,34 @@
+1. notes app - web app !done 
+2. notes app - full stack 
+    full stack 
+        - backend using flask 
+        - frontend using react JS 
+
+notes backend app using flask 
+    - learn APIs development 
+        via calc 
+            sum calc using GET API 
+            square calc using POST API 
+    - code backend notes app 
+
+    APIs we will test using client "Thunder Client"/"POSTMAN(your side try)" in visual studio
+
+notes frontend app using react JS
+    - react JS learnings 
+    - case studies in react 
+    - code frontend notes app 
+
+mongo db - connect our notes app with mongo db also 
+-------------------------------------------
+notes backend app - API End Points          -  CRUD operations 
+                        End Point                               
+task            HTTP Request    URL                          
+                Verb            Noun                            handler 
+                                baseURL: https://<server>
+create          POST            /notes                          notes_create()
+read by id      GET             /notes/<id>                     notes_read_byid(id)
+read all        GET             /notes                          notes_readall()
+update          PUT             /notes/<id>                     notes_update(id)
+delete          DELETE          /notes/<id>                     notes_delete(id)
+search          POST            /notes_search                   notes_search()
+-------------------------------------------
