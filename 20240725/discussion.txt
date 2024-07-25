@@ -80,3 +80,15 @@ useState - a special function used as the 'state hook'
     returns two element array 
         two elements are : 1. readonly state data 2. function to set the state 
 -----------------------------------------------------------------------------
+
+
+Skills 
+Python | DSA | ADSA | 
+HTML 5 | CSS 3 | Bootstrap | JavaScript | 
+Flask | SQLite | MySQL | React JS 
+
+Case Studies:
+    HTML 5
+        ...
+    CSS 3
+        ...

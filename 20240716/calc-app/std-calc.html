@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator | Sum Calculator</title>
-    <link rel="stylesheet" type="text/css" href="sum-styles.css"/>
-    <script type="text/javascript" src="sum-script.js"></script>
+    <title>Calculator | Standard Calculator</title>
+    <link rel="stylesheet" type="text/css" href="std-styles.css"/>
+    <script type="text/javascript" src="std-script.js"></script>
 </head>
 <body>
     <h1>Calculator</h1>
@@ -14,25 +14,43 @@
         <a href="square-calc.html">Sqare Calc</a>
         <a href="std-calc.html">Standard Calc</a> 
     </div>
-    <h3>Sum Calculator</h3>
-    <div>
-        <form>
-            <div>
-                <label for="first">First Number:</label>
-                <input type="number" id="first"/> 
-            </div>
-            <div>
-                <label for="second">Second Number:</label>
-                <input type="number" id="second"/> 
-            </div>
-            <div>
-                <label for="result">Sum:</label>
-                <input type="number" id="result"/> 
-            </div>
-            <button type="button" 
-                onclick="calculateSum();">Calc Sum</button>
-            <p id="answer"></p>
-        </form>
-    </div>
+    <h3>Standard Calculator</h3>
+    <table width="200" align="center">
+        <tr>
+            <td colspan="4"> 
+                <input type="text" id="result" readonly/> 
+            </td>
+        </tr>
+        <tr>
+            <td width="50"> <button></button> </td>
+            <td width="50"> <button></button> </td>
+            <td width="50"> <button onclick="calc('C')">C</button> </td>
+            <td width="50"> <button onclick="calc('/')">/</button> </td>
+        </tr>
+        <tr>
+            <td> <button onclick="calc('7')">7</button> </td>
+            <td> <button onclick="calc('8')">8</button> </td>
+            <td> <button onclick="calc('9')">9</button> </td>
+            <td> <button onclick="calc('*')">*</button> </td>
+        </tr>
+        <tr>
+            <td> <button onclick="calc('4')">4</button> </td>
+            <td> <button onclick="calc('5')">5</button> </td>
+            <td> <button onclick="calc('6')">6</button> </td>
+            <td> <button onclick="calc('-')">-</button> </td>
+        </tr>
+        <tr>
+            <td> <button onclick="calc('1')">1</button> </td>
+            <td> <button onclick="calc('2')">2</button> </td>
+            <td> <button onclick="calc('3')">3</button> </td>
+            <td> <button onclick="calc('+')">+</button> </td>
+        </tr>
+        <tr>
+            <td> <button></button> </td>
+            <td> <button onclick="calc('0')">0</button> </td>
+            <td> <button></button> </td>
+            <td> <button onclick="calc('=')">=</button> </td>
+        </tr>
+    </table>
 </body>
 </html>
