@@ -1,0 +1,69 @@
+-- index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CBIT Year 2 Apps</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+-- /src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+//import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+
+-- /src/App.jsx 
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//import './App.css'
+
+import CounterStandard from "./counter/CounterStandard"
+
+function App() {
+ 
+
+  return (
+    <>
+      <h1>CBIT Year 2 Apps</h1>
+      <CounterStandard/>
+    </>
+  )
+}
+
+export default App
+
+-- /src/counter/CounterStandard.jsx 
+import { useState } from "react";
+
+function CounterStandard( ) {
+    const [count, setCount] = useState(0);
+    const onPlus = function(){
+        setCount(count + 1);
+    };
+    const onMinus = function(){
+        if(count - 1 < 0){return;}
+        setCount(count - 1);
+    };
+    return (
+        <>
+            <h3>Counter:{count}</h3>
+            <button onClick={onPlus}>+</button>
+            <button onClick={onMinus}>-</button>
+        </>
+    )
+}
+export default CounterStandard;

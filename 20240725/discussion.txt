@@ -1,0 +1,82 @@
+React JS: node JS package, we npm to install required packages to support react development.
+    Front End Web Development UI Framework.
+
+    Some others: Angular, Vue
+
+With React JS: 
+    Single Page App runs client browser.
+
+    many pages(entire screen display) are switched in the single page app.
+    One html:
+        we have many pages, switch between the pages using router.
+    One html:
+        we have only only page, 
+            hierarchical components.
+React building block: component 
+component : function/class(code) + HTML (UI) - jsx / tsx 
+    jsx = java script xml, here xml - html 5
+-----------------------------------------------------------------------------
+a web page - element tree 
+    in javascript we call it as DOM 
+        Document Object Model - hierarchical objects maps the elements tree in the page 
+-----------------------------------------------------------------------------
+React JS has its own virtual DOM and it will checks the real DOM 
+to update the changes into the real DOM.
+-----------------------------------------------------------------------------
+    component - UI - HTML 
+    virtaul DOM 
+-----------------------------------------------------------------------------
+To query version of node, npm, npx 
+$ node -v           #javascript engine 
+$ npm -v            #node package manager 
+$ npx -v            #CLI to support dev like to create-react-app
+
+If we have all above CLIs, node is installed properly.
+
+To create react app named "first-app"
+$ npx create-react-app first_app 
+-----------------------------------------------------------------------------
+nimbus we have vite based project template:
+    1. packages installed 
+    2. project folder structure 
+-----------------------------------------------------------------------------
+once node app is created, we will have "package.json"
+    here, we have 
+        - dependencies  : libraries 
+        - scripts 
+        etc 
+-----------------------------------------------------------------------------
+vite - frontend tooling
+-----------------------------------------------------------------------------
+react project structure using vite template: 
+    - index.html                single page for react page 
+    - src/main.jsx              entry point for react app 
+        index.css  
+    - src/App.jsx               very first parent component mounted on react app 
+        App.css 
+
+-----------------------------------------------------------------------------
+1. classical counter problem
+    counter:5
+     [+][-]
+
+2. todo app 
+    add todo 
+    list of todos 
+3. web site 
+    pages: home, about, services, etc 
+        swtich between the pages via router 
+-----------------------------------------------------------------------------
+4. calculator 
+5. tic-toc-toe 
+-----------------------------------------------------------------------------       
+React App:
+    Component Tree 
+    Component may maintain its state data - State 
+              my receive data from parent - Props
+-----------------------------------------------------------------------------
+useState - a special function used as the 'state hook'
+    takes argument as initial value : simple data like int/float/string etc | document / json / object | array 
+    returns two element array 
+        two elements are : 1. readonly state data 2. function to set the state 
+-----------------------------------------------------------------------------
