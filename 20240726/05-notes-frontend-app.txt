@@ -1,0 +1,18 @@
+-- index.html   title / bootstrap
+-- /src/main.jsx     //App.css 
+-- /src/App.jsx      //initial imports //HaveNoCode //Router definition for our app 
+                                        router path 
+-- /src/header/LoggedInHeader.jsx           
+-- /src/notes/ListNotes.jsx                 "/notes/list"
+-- /src/notes/SearchNotes.jsx               "/"
+-- /src/notes/CreateNote.jsx                "/notes/create"
+-- /src/notes/ViewNote.jsx                  "/notes/view/:id"
+-- /src/notes/EditNote.jsx                  "/notes/edit/:id"
+
+-- /src/services/BackendService.js 
+
+-- service : LoginService
+-- log in -> header, Login 
+------------------------------------------------------------------------------------------
+install react-router-dom using npm:
+$ npm install react-router-dom
