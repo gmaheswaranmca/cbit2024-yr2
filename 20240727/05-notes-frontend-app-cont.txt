@@ -1,0 +1,129 @@
+-- index.html   title / bootstrap
+-- /src/main.jsx     //App.css 
+-- /src/App.jsx      //initial imports //HaveNoCode //Router definition for our app 
+                                        router path 
+-- /src/header/LoggedInHeader.jsx           
+-- /src/notes/ListNotes.jsx                 "/notes/list"
+-- /src/notes/SearchNotes.jsx               "/"
+-- /src/notes/CreateNote.jsx                "/notes/create"
+-- /src/notes/ViewNote.jsx                  "/notes/view/:id"
+-- /src/notes/EditNote.jsx                  "/notes/edit/:id"
+
+-- /src/services/BackendService.js 
+
+-- service : LoginService
+-- log in -> header, Login 
+------------------------------------------------------------------------------------------
+install react-router-dom using npm:
+$ npm install react-router-dom
+------------------------------------------------------------------------------------------
+{JSON.stringify(formNote)} is added to debug the state formNote.
+------------------------------------------------------------------------------------------
+Initial Setup of the Notes Frontend app 
+Designs of the Notes Frontend app coded 
+------------------------------------------------------------------------------------------
+Complete coding of the Notes Frontend app
+    -- Backend app should run                   !!! DONE 
+        -- Requires cors policy to be enabled 
+        $ pip install Flask-Cors 
+    -- Fronend app 
+        - 'axios' library to connect backend | Alternative:fetch api (core of HTML 5)
+        $ npm install axios 
+        BackendSevice class 
+------------------------------------------------------------------------------------------
+what is promise?
+    -- functional object 
+        which maintains states 
+        pending, fulfilled, rejected 
+        and helps to make asynchrous call
+x is promise object.
+what is x?
+x is the function 
+we can call the function x()
+at call the function x() 
+    we need the handler for 'fulfilled' state 
+    or for 'rejected' state 
+-- promise call 
+x().then(fnFulfilledHandler).catch(fnRejectedHandler)
+x().then((notes)=>{/**/}).catch((err)=>{/**/})
+
+-- another option to handle promise state 
+ via async/await combo which 
+ makes the synchronous call for promise 
+
+call promise with "await" 
+and qualify the scoped function as "async"
+
+
+function f(){
+    x().then((notes)=>{/**/}).catch((err)=>{/**/})
+}
+
+here x is promise and called 
+and f is the scoped function 
+
+=>
+
+async function f(){
+   try{ 
+        const notes = await x(); //blocked 
+        //handle the notes 
+   }catch(err) {
+     // err handling 
+   }
+}
+------------------------------------
+life cycle call backs of the component.
+1. after component mounted 
+    -- subscribe to third-party library 
+    -- side effect call to backend 
+2. every time re-rendered
+    -- every time the change depencies 
+3. before component unmounted 
+    -- unsubscribe to third-party library
+
+functional component does not have 
+any life cycle callbacks.
+But we lifecycle call back hook named useEffect. 
+------------------------------------
+db.py 
+    => 
+
+db_connect.py 
+    connect 
+db_notes.py
+    from db_connect import connect      
+    notes related class, ddl fn, crud/search fns 
+db_comments.py 
+    from db_connect import connect 
+    comments related class, ddl fn, crud/search fns 
+app.py 
+    #from db import noteTablesCreate, readAllNotes #
+    #from db import createNote, readNoteById, updateNote  ###3
+    #from db import search, deleteNote, Note  ###2+1
+    import db_notes
+    import db_comments 
+
+    db_notes.noteTablesCreate() # db is created if not exist, tbl is created if not exist.
+    db_comments.commentTablesCreate()
+
+    @app.route("/notes",methods=['POST'])
+    def notes_create():
+        body = request.get_json()
+        new_note = db_notes.Note(title = body['title'], notes = body['notes'])
+        id = db_notes.createNote(new_note)
+        note = readNoteById(id)
+        note_dict = {'id': note.id, 'title': note.title, 'notes':note.notes}
+        return jsonify(note_dict)
+
+    @app.route("/notes/<id>",methods=['GET'])
+    def notes_read_byid(id):
+        note = db_notes.readNoteById(id)
+        note_dict = {'id': note.id, 'title': note.title, 'notes':note.notes}
+        return jsonify(note_dict)
+
+
+
+
+
+
