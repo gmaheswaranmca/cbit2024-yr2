@@ -16,3 +16,5 @@
 ------------------------------------------------------------------------------------------
 install react-router-dom using npm:
 $ npm install react-router-dom
+------------------------------------------------------------------------------------------
+{JSON.stringify(formNote)} is added to debug the state formNote.
