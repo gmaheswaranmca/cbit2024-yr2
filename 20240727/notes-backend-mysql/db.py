@@ -5,7 +5,7 @@ def connect():
     return con 
 def noteTablesCreate():
     sql = """CREATE TABLE IF NOT EXISTS notes(
-        id integer primary key AUTOINCREMENT,
+        id integer primary key AUTO_INCREMENT,
         title varchar(255) not null,
         notes varchar(2000) not null
     )"""
